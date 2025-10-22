@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import logo from '../assets/images/Logo.png';
-import colors from '../styles/colors';
+import ProgressIndicator from './ProgressIndicator';
 import './WelcomeScreen.css';
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ onSignUp }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -14,54 +14,16 @@ const WelcomeScreen = () => {
     console.log('Form submitted:', { email, password });
   };
 
+  const handleSignUpClick = () => {
+    if (onSignUp) {
+      onSignUp();
+    }
+  };
+
   return (
     <div className="welcome-container">
       {/* Left Progress Section */}
-      <div className="progress-section">
-        <div className="progress-steps">
-          <div className="step completed">
-            <div className="step-circle">
-              <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
-                <path d="M1 6L5 10L15 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            <div className="step-content">
-              <div className="step-title">Sign Up</div>
-              <div className="step-description">Please provide your name and</div>
-            </div>
-          </div>
-          
-          <div className="step-line"></div>
-          
-          <div className="step">
-            <div className="step-circle"></div>
-            <div className="step-content">
-              <div className="step-title">Email Verification</div>
-              <div className="step-description">Please verify your Email</div>
-            </div>
-          </div>
-          
-          <div className="step-line"></div>
-          
-          <div className="step">
-            <div className="step-circle"></div>
-            <div className="step-content">
-              <div className="step-title">Payment</div>
-              <div className="step-description">Please provide your payment information</div>
-            </div>
-          </div>
-          
-          <div className="step-line"></div>
-          
-          <div className="step">
-            <div className="step-circle"></div>
-            <div className="step-content">
-              <div className="step-title">AI Assistant</div>
-              <div className="step-description">Choose AI Assistant preferences</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ProgressIndicator currentStep={1} />
 
       {/* Right Form Section */}
       <div className="form-section">
@@ -137,7 +99,7 @@ const WelcomeScreen = () => {
               </button>
 
               <div className="signin-link">
-                Don't have an account? <button type="button" className="signin-text">Sign Up</button>
+                Don't have an account? <button type="button" className="signin-text" onClick={handleSignUpClick}>Sign Up</button>
               </div>
             </form>
           </div>

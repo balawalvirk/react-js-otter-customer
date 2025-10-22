@@ -5,68 +5,7 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
-/* Left Progress Section */
-.progress-section {
-  width: 33.33%;
-  background: #0D90B2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
-
-.progress-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  max-width: 300px;
-}
-
-.step {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.step-circle {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  border: 2px solid white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.step.completed .step-circle {
-  background-color: white;
-  color: #0D90B2;
-}
-
-.step-content {
-  color: white;
-}
-
-.step-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-}
-
-.step-description {
-  font-size: 0.875rem;
-  opacity: 0.9;
-  line-height: 1.4;
-}
-
-.step-line {
-  width: 2px;
-  height: 2rem;
-  background-color: rgba(255, 255, 255, 0.3);
-  margin-left: 11px;
-}
+/* Left Progress Section - Now handled by ProgressIndicator component */
 
 /* Right Form Section */
 .form-section {
