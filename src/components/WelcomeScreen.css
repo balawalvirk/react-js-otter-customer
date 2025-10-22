@@ -1,0 +1,278 @@
+/* Welcome Screen Styles */
+.welcome-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Left Progress Section */
+.progress-section {
+  width: 33.33%;
+  background: #0D90B2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.progress-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 300px;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.step-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.step.completed .step-circle {
+  background-color: white;
+  color: #0D90B2;
+}
+
+.step-content {
+  color: white;
+}
+
+.step-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.step-description {
+  font-size: 0.875rem;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+.step-line {
+  width: 2px;
+  height: 2rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin-left: 11px;
+}
+
+/* Right Form Section */
+.form-section {
+  width: 66.67%;
+  background: linear-gradient(135deg, #F8FAFC, #F1F5F9);
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(20, 184, 166, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(20, 184, 166, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(20, 184, 166, 0.05) 0%, transparent 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.form-card {
+  background: white;
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.1rem;
+}
+
+.logo {
+  width: 220px;
+  height: 100px;
+  object-fit: contain;
+}
+
+/* Welcome Message */
+.welcome-message {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.welcome-message h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1F2937;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.welcome-message p {
+  font-size: 1rem;
+  color: #6B7280;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Form Styles */
+.welcome-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  z-index: 1;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 12px 12px 12px 44px;
+  border: 1px solid #D1D5DB;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: white;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-container input:focus {
+  outline: none;
+  border-color: #0D90B2;
+  box-shadow: 0 0 0 3px rgba(13, 144, 178, 0.1);
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.forgot-password {
+  text-align: right;
+  margin-top: -0.5rem;
+}
+
+.forgot-link {
+  font-size: 0.875rem;
+  color: #6B7280;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.forgot-link:hover {
+  color: #0D90B2;
+}
+
+.signup-button {
+  background: #0D90B2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+}
+
+.signup-button:hover {
+  background: #0A7A99;
+}
+
+.signin-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: #6B7280;
+}
+
+.signin-text {
+  color: #0D90B2;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.signin-text:hover {
+  color: #0A7A99;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .welcome-container {
+    flex-direction: column;
+  }
+  
+  .progress-section,
+  .form-section {
+    width: 100%;
+  }
+  
+  .progress-section {
+    min-height: 200px;
+  }
+  
+  .form-card {
+    padding: 2rem;
+  }
+  
+  .logo-main {
+    font-size: 1.5rem;
+  }
+  
+  .welcome-message h1 {
+    font-size: 1.5rem;
+  }
+}
