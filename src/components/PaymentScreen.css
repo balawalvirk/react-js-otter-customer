@@ -1,22 +1,22 @@
 /* Payment Screen */
 .payment-container { display:flex; min-height:100vh; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto',sans-serif; }
 .form-section { width:66.67%; display:flex; align-items:center; justify-content:center; padding:2rem; background:linear-gradient(135deg,#F8FAFC,#F1F5F9); }
-.payment-card { background:#fff; border-radius:0.1rem; padding:2rem; box-shadow:0 10px 25px rgba(0,0,0,.08); width:640px; max-width:100%; }
-.payment-title { margin:0 0 1rem 0; text-align:center; font-size:2rem; font-weight:700; color:#111827; }
+.payment-card { background:#fff; border-radius:0.1rem; padding:1.5rem; box-shadow:0 10px 25px rgba(0,0,0,.08); width:640px; max-width:100%; }
+.payment-title { margin:0 0 0.75rem 0; text-align:center; font-size:1.75rem; font-weight:700; color:#111827; }
 .row.two { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; margin:.5rem 0; }
 .ghost { border:1px solid #E5E7EB; background:#fff; padding:.6rem .8rem; border-radius:0.1rem; text-align:left; color:#374151; display:flex; align-items:center; gap:.5rem; }
-.sep { display:flex; align-items:center; gap:.75rem; margin:1rem 0; color:#6B7280; }
+.sep { display:flex; align-items:center; gap:.75rem; margin:0.75rem 0; color:#6B7280; }
 .sep .line { flex:1; height:1px; background:#E5E7EB; }
 .ghost.full { width:100%; }
 .ghost.disabled { background:#F9FAFB; color:#9CA3AF; border-color:#E5E7EB; cursor:not-allowed; }
-.grid.two { display:grid; grid-template-columns:2fr 1fr; gap:.75rem; margin:1rem 0; }
-.grid.three { display:grid; grid-template-columns:1fr 1fr 1fr; gap:.75rem; margin:.25rem 0 1rem 0; }
+.grid.two { display:grid; grid-template-columns:2fr 1fr; gap:.75rem; margin:0.75rem 0; }
+.grid.three { display:grid; grid-template-columns:1fr 1fr 1fr; gap:.75rem; margin:.25rem 0 0.75rem 0; }
 .field { display:flex; flex-direction:column; gap:.35rem; }
 .field span { font-size:.9rem; color:#1F2937; font-weight:600; }
 .field input { border:1px solid #D1D5DB; border-radius:0.1rem; padding:.6rem .75rem; background:#fff; }
 .input-with-icon { position:relative; display:flex; align-items:center; }
 .input-with-icon .input-icon { position:absolute; left:12px; z-index:1; }
 .input-with-icon input { padding-left:40px; }
-.actions { display:flex; justify-content:center; margin-top:1rem; }
+.actions { display:flex; justify-content:center; margin-top:0.75rem; }
 .primary { background:#0D90B2; color:#fff; border:none; border-radius:0.1rem; padding:.7rem 1.5rem; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:.5rem; }
 .primary:hover { background:#0A7A99; }
