@@ -55,7 +55,7 @@ const PaymentScreen = ({ onContinue }) => {
 						</label>
 						<label className="field">
 							<span>CVV</span>
-							<input placeholder="MM/YY" />
+							<input  placeholder="MM/YY" />
 						</label>
 					</div>
 
