@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from '../assets/images/Logo.png';
 import ProgressIndicator from './ProgressIndicator';
 import './WelcomeScreen.css';
 
-const WelcomeScreen = ({ onSignUp, onSignIn }) => {
+const WelcomeScreen = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -12,15 +14,11 @@ const WelcomeScreen = ({ onSignUp, onSignIn }) => {
     e.preventDefault();
     // Handle form submission
     console.log('Form submitted:', { email, password });
-    if (onSignIn) {
-      onSignIn();
-    }
+    navigate('/home');
   };
 
   const handleSignUpClick = () => {
-    if (onSignUp) {
-      onSignUp();
-    }
+    navigate('/signup');
   };
 
   return (

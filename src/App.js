@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import WelcomeScreen from './components/WelcomeScreen';
 import SignUpScreen from './components/SignUpScreen';
 import CreateAccountScreen from './components/CreateAccountScreen';
@@ -12,92 +13,24 @@ import JobReviewsScreen from './components/JobReviewsScreen';
 import './App.css';
 
 function App() {
-  const [currentScreen, setCurrentScreen] = useState('welcome');
-
-  const handleSignUp = () => {
-    setCurrentScreen('signup');
-  };
-
-  const handleSignIn = () => {
-    setCurrentScreen('home');
-  };
-
-  const handleContinue = (role) => {
-    console.log('Selected role:', role);
-    setCurrentScreen('create-account');
-  };
-
-  const handleCreateAccount = (formData) => {
-    console.log('Account created:', formData);
-    setCurrentScreen('email-verification');
-  };
-
-  const handleEmailVerification = (code) => {
-    console.log('Email verified with code:', code);
-    setCurrentScreen('payment');
-  };
-
-  const handlePayment = () => {
-    console.log('Payment completed');
-    setCurrentScreen('ai-assistant');
-  };
-
-  const handleAIComplete = () => {
-    console.log('AI setup completed');
-    setCurrentScreen('home');
-  };
-
-  const handleNavigate = (screen) => {
-    setCurrentScreen(screen);
-  };
-
-  const handleBack = () => {
-    if (currentScreen === 'signup') {
-      setCurrentScreen('welcome');
-    } else if (currentScreen === 'create-account') {
-      setCurrentScreen('signup');
-    } else if (currentScreen === 'email-verification') {
-      setCurrentScreen('create-account');
-    } else if (currentScreen === 'payment') {
-      setCurrentScreen('email-verification');
-    } else if (currentScreen === 'ai-assistant') {
-      setCurrentScreen('payment');
-    }
-  };
-
   return (
-    <div className="App">
-      {currentScreen === 'welcome' && (
-        <WelcomeScreen onSignUp={handleSignUp} onSignIn={handleSignIn} />
-      )}
-      {currentScreen === 'signup' && (
-        <SignUpScreen onBack={handleBack} onContinue={handleContinue} />
-      )}
-      {currentScreen === 'create-account' && (
-        <CreateAccountScreen onBack={handleBack} onContinue={handleCreateAccount} />
-      )}
-      {currentScreen === 'email-verification' && (
-        <EmailVerificationScreen onVerify={handleEmailVerification} />
-      )}
-      {currentScreen === 'payment' && (
-        <PaymentScreen onContinue={handlePayment} />
-      )}
-      {currentScreen === 'ai-assistant' && (
-        <AIAssistantScreen onComplete={handleAIComplete} />
-      )}
-      {currentScreen === 'home' && (
-        <HomeScreen onNavigate={handleNavigate} />
-      )}
-      {currentScreen === 'chat' && (
-        <ChatScreen onNavigate={handleNavigate} />
-      )}
-      {currentScreen === 'tracking' && (
-        <TrackingScreen onNavigate={handleNavigate} />
-      )}
-      {currentScreen === 'job-reviews' && (
-        <JobReviewsScreen onNavigate={handleNavigate} />
-      )}
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<WelcomeScreen />} />
+          <Route path="/signup" element={<SignUpScreen />} />
+          <Route path="/create-account" element={<CreateAccountScreen />} />
+          <Route path="/email-verification" element={<EmailVerificationScreen />} />
+          <Route path="/payment" element={<PaymentScreen />} />
+          <Route path="/ai-assistant" element={<AIAssistantScreen />} />
+          <Route path="/home" element={<HomeScreen />} />
+          <Route path="/chat" element={<ChatScreen />} />
+          <Route path="/tracking" element={<TrackingScreen />} />
+          <Route path="/job-reviews" element={<JobReviewsScreen />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

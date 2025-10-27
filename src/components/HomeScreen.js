@@ -9,7 +9,7 @@ import container5 from '../assets/icons/home icons/Container (5).png';
 import container6 from '../assets/icons/home icons/Container (6).png';
 import container7 from '../assets/icons/home icons/Container (7).png';
 import container from '../assets/icons/home icons/Container.png';
-const HomeScreen = ({ onNavigate }) => {
+const HomeScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [chatMessage, setChatMessage] = useState('');
 
@@ -90,7 +90,7 @@ const HomeScreen = ({ onNavigate }) => {
   return (
     <div className="home-container">
       {/* Header Component */}
-      <Header activeTab="home" onNavigate={onNavigate} />
+        <Header activeTab="home" />
 
       {/* Main Content */}
       <div className="main-content">

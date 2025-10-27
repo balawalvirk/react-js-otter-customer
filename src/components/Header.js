@@ -1,32 +1,34 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Header.css';
 
-const Header = ({ activeTab, onNavigate }) => {
+const Header = ({ activeTab }) => {
+  const navigate = useNavigate();
   return (
     <div className="header-container">
       <div className="top-nav">
         <div className="nav-tabs">
           <button 
             className={`nav-tab ${activeTab === 'home' ? 'active' : ''}`} 
-            onClick={() => onNavigate('home')}
+            onClick={() => navigate('/home')}
           >
             Home
           </button>
           <button 
             className={`nav-tab ${activeTab === 'chat' ? 'active' : ''}`} 
-            onClick={() => onNavigate('chat')}
+            onClick={() => navigate('/chat')}
           >
             Chat
           </button>
           <button 
             className={`nav-tab ${activeTab === 'tracking' ? 'active' : ''}`} 
-            onClick={() => onNavigate('tracking')}
+            onClick={() => navigate('/tracking')}
           >
             Tracking
           </button>
           <button 
             className={`nav-tab ${activeTab === 'job-reviews' ? 'active' : ''}`} 
-            onClick={() => onNavigate('job-reviews')}
+            onClick={() => navigate('/job-reviews')}
           >
             Job Reviews
           </button>

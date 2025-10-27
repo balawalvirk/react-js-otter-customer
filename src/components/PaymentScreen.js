@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import ProgressIndicator from './ProgressIndicator';
 import appleIcon from '../assets/icons/a.png';
 import googleIcon from '../assets/icons/g.png';
@@ -7,7 +8,8 @@ import afterpayIcon from '../assets/icons/After.png';
 import cardIcon from '../assets/icons/card.png';
 import './PaymentScreen.css';
 
-const PaymentScreen = ({ onContinue }) => {
+const PaymentScreen = () => {
+	const navigate = useNavigate();
 	return (
 		<div className="payment-container">
 			<ProgressIndicator currentStep={3} />
@@ -68,7 +70,7 @@ const PaymentScreen = ({ onContinue }) => {
 					<label className="field"><span>Cardholder Name</span><input placeholder="John Doe" /></label>
 
 					<div className="actions">
-						<button className="primary" onClick={onContinue}>Continue
+						<button className="primary" onClick={() => navigate('/ai-assistant')}>Continue
 							<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                   <path d="M4.16667 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from './Header';
 import './ChatScreen.css';
 
-const ChatScreen = ({ onNavigate }) => {
+const ChatScreen = () => {
   const [message, setMessage] = useState('');
 
   const handleSubmit = (e) => {
@@ -20,7 +20,7 @@ const ChatScreen = ({ onNavigate }) => {
   return (
     <div className="chat-container">
       {/* Header Component */}
-        <Header activeTab="chat" onNavigate={onNavigate} />
+        <Header activeTab="chat" />
 
       {/* Main Content */}
       <div className="chat-main-content">
