@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ProgressIndicator from './ProgressIndicator';
 import aiIcon from '../assets/icons/ai.png';
 import './AIAssistantScreen.css';
 
-const AIAssistantScreen = ({ onComplete }) => {
+const AIAssistantScreen = () => {
+  const navigate = useNavigate();
   const [aiEnabled, setAiEnabled] = useState(true);
 
   const handleComplete = () => {
-    onComplete();
+    console.log('AI setup completed');
+    navigate('/home');
   };
 
   return (

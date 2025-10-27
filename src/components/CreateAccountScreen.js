@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ProgressIndicator from './ProgressIndicator';
 import googleIcon from '../assets/icons/google.png';
 import appleIcon from '../assets/icons/apple.png';
 import facebookIcon from '../assets/icons/facebook.png';
 import './CreateAccountScreen.css';
 
-const CreateAccountScreen = ({ onBack, onContinue }) => {
+const CreateAccountScreen = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: 'Johnson@gmail.com',
     phone: '012 345 6788',
@@ -24,7 +26,7 @@ const CreateAccountScreen = ({ onBack, onContinue }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    onContinue(formData);
+    navigate('/email-verification');
   };
 
   const handleSocialLogin = (provider) => {

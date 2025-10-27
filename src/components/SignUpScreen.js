@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ProgressIndicator from './ProgressIndicator';
 import './SignUpScreen.css';
 
-const SignUpScreen = ({ onBack, onContinue }) => {
+const SignUpScreen = () => {
+  const navigate = useNavigate();
   const [selectedRole, setSelectedRole] = useState('customer');
 
   const handleRoleChange = (role) => {
@@ -10,7 +12,8 @@ const SignUpScreen = ({ onBack, onContinue }) => {
   };
 
   const handleContinue = () => {
-    onContinue(selectedRole);
+    console.log('Selected role:', selectedRole);
+    navigate('/create-account');
   };
 
   return (
