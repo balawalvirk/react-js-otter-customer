@@ -6,6 +6,9 @@ import EmailVerificationScreen from './components/EmailVerificationScreen';
 import PaymentScreen from './components/PaymentScreen';
 import AIAssistantScreen from './components/AIAssistantScreen';
 import HomeScreen from './components/HomeScreen';
+import ChatScreen from './components/ChatScreen';
+import TrackingScreen from './components/TrackingScreen';
+import JobReviewsScreen from './components/JobReviewsScreen';
 import './App.css';
 
 function App() {
@@ -13,6 +16,10 @@ function App() {
 
   const handleSignUp = () => {
     setCurrentScreen('signup');
+  };
+
+  const handleSignIn = () => {
+    setCurrentScreen('home');
   };
 
   const handleContinue = (role) => {
@@ -61,7 +68,7 @@ function App() {
   return (
     <div className="App">
       {currentScreen === 'welcome' && (
-        <WelcomeScreen onSignUp={handleSignUp} />
+        <WelcomeScreen onSignUp={handleSignUp} onSignIn={handleSignIn} />
       )}
       {currentScreen === 'signup' && (
         <SignUpScreen onBack={handleBack} onContinue={handleContinue} />
@@ -80,6 +87,15 @@ function App() {
       )}
       {currentScreen === 'home' && (
         <HomeScreen onNavigate={handleNavigate} />
+      )}
+      {currentScreen === 'chat' && (
+        <ChatScreen onNavigate={handleNavigate} />
+      )}
+      {currentScreen === 'tracking' && (
+        <TrackingScreen onNavigate={handleNavigate} />
+      )}
+      {currentScreen === 'job-reviews' && (
+        <JobReviewsScreen onNavigate={handleNavigate} />
       )}
     </div>
   );

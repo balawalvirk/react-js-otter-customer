@@ -1,7 +1,7 @@
 import React from 'react';
 import './TrackingScreen.css';
 
-const TrackingScreen = ({ onNavigate }) => {
+const TrackingScreen = () => {
   const handleCallTech = () => {
     console.log('Calling technician');
   };
@@ -19,18 +19,18 @@ const TrackingScreen = ({ onNavigate }) => {
       {/* Top Navigation */}
       <div className="top-nav">
         <div className="nav-tabs">
-          <button className="nav-tab" onClick={() => onNavigate('home')}>Home</button>
-          <button className="nav-tab" onClick={() => onNavigate('chat')}>Chat</button>
-          <button className="nav-tab active" onClick={() => onNavigate('tracking')}>Tracking</button>
-          <button className="nav-tab" onClick={() => onNavigate('job-reviews')}>Job Reviews</button>
-          <button className="nav-tab" onClick={() => onNavigate('history')}>History</button>
-          <button className="nav-tab" onClick={() => onNavigate('profile')}>Profile</button>
-          <button className="nav-tab" onClick={() => onNavigate('logout')}>Logout</button>
+          <button className="nav-tab">Home</button>
+          <button className="nav-tab">Chat</button>
+          <button className="nav-tab active">Tracking</button>
+          <button className="nav-tab">Job Reviews</button>
+          <button className="nav-tab">History</button>
+          <button className="nav-tab">Profile</button>
+          <button className="nav-tab">Logout</button>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="main-content">
+      <div className="tracking-main-content">
         {/* Live Tracking Section */}
         <div className="tracking-section">
           <div className="section-header">
@@ -66,53 +66,53 @@ const TrackingScreen = ({ onNavigate }) => {
         </div>
 
         {/* Job Progress Section */}
-        <div className="progress-section">
+        <div className="tracking-progress-section">
           <h2 className="section-title">Job Progress</h2>
-          <div className="progress-steps">
-            <div className="progress-step completed">
-              <div className="step-icon">
+          <div className="tracking-tracking-progress-steps">
+            <div className="tracking-progress-step completed">
+              <div className="tracking-step-icon">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M1 6L5 10L15 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <div className="step-content">
-                <p className="step-title">Job Accepted</p>
-                <p className="step-time">2:15 PM</p>
+              <div className="tracking-step-content">
+                <p className="tracking-step-title">Job Accepted</p>
+                <p className="tracking-step-time">2:15 PM</p>
               </div>
             </div>
             
-            <div className="progress-step completed">
-              <div className="step-icon">
+            <div className="tracking-progress-step completed">
+              <div className="tracking-step-icon">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M1 6L5 10L15 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <div className="step-content">
-                <p className="step-title">Technician En Route</p>
-                <p className="step-time">2:42 PM</p>
+              <div className="tracking-step-content">
+                <p className="tracking-step-title">Technician En Route</p>
+                <p className="tracking-step-time">2:42 PM</p>
               </div>
             </div>
             
-            <div className="progress-step completed">
-              <div className="step-icon">
+            <div className="tracking-progress-step completed">
+              <div className="tracking-step-icon">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M1 6L5 10L15 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <div className="step-content">
-                <p className="step-title">Arrived On Site</p>
-                <p className="step-time">3:18 PM</p>
+              <div className="tracking-step-content">
+                <p className="tracking-step-title">Arrived On Site</p>
+                <p className="tracking-step-time">3:18 PM</p>
               </div>
             </div>
             
-            <div className="progress-step current">
-              <div className="step-icon">
+            <div className="tracking-progress-step current">
+              <div className="tracking-step-icon">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M1 6L5 10L15 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <div className="step-content">
-                <p className="step-title current-text">Job Completed</p>
+              <div className="tracking-step-content">
+                <p className="tracking-step-title current-text">Job Completed</p>
               </div>
             </div>
           </div>

@@ -32,19 +32,16 @@ const Header = ({ activeTab, onNavigate }) => {
           </button>
           <button 
             className={`nav-tab ${activeTab === 'history' ? 'active' : ''}`} 
-            onClick={() => onNavigate('history')}
           >
             History
           </button>
           <button 
             className={`nav-tab ${activeTab === 'profile' ? 'active' : ''}`} 
-            onClick={() => onNavigate('profile')}
           >
             Profile
           </button>
           <button 
             className={`nav-tab ${activeTab === 'logout' ? 'active' : ''}`} 
-            onClick={() => onNavigate('logout')}
           >
             Logout
           </button>

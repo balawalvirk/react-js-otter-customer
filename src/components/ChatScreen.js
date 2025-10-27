@@ -20,13 +20,13 @@ const ChatScreen = ({ onNavigate }) => {
   return (
     <div className="chat-container">
       {/* Header Component */}
-      <Header activeTab="chat" onNavigate={onNavigate} />
+        <Header activeTab="chat" onNavigate={onNavigate} />
 
       {/* Main Content */}
-      <div className="main-content">
+      <div className="chat-main-content">
         {/* Chat Header */}
         <div className="chat-header">
-          <button className="back-button" onClick={() => onNavigate('home')}>
+          <button className="back-button">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M12.5 15L7.5 10L12.5 5" stroke="#374151" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>

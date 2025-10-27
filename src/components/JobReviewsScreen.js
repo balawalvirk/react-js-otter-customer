@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './JobReviewsScreen.css';
 
-const JobReviewsScreen = ({ onNavigate }) => {
+const JobReviewsScreen = () => {
   const [review, setReview] = useState('');
   const [uploadedFile, setUploadedFile] = useState(null);
 
@@ -31,18 +31,18 @@ const JobReviewsScreen = ({ onNavigate }) => {
       {/* Top Navigation */}
       <div className="top-nav">
         <div className="nav-tabs">
-          <button className="nav-tab" onClick={() => onNavigate('home')}>Home</button>
-          <button className="nav-tab" onClick={() => onNavigate('chat')}>Chat</button>
-          <button className="nav-tab" onClick={() => onNavigate('tracking')}>Tracking</button>
-          <button className="nav-tab active" onClick={() => onNavigate('job-reviews')}>Job Reviews</button>
-          <button className="nav-tab" onClick={() => onNavigate('history')}>History</button>
-          <button className="nav-tab" onClick={() => onNavigate('profile')}>Profile</button>
-          <button className="nav-tab" onClick={() => onNavigate('logout')}>Logout</button>
+          <button className="nav-tab">Home</button>
+          <button className="nav-tab">Chat</button>
+          <button className="nav-tab">Tracking</button>
+          <button className="nav-tab active">Job Reviews</button>
+          <button className="nav-tab">History</button>
+          <button className="nav-tab">Profile</button>
+          <button className="nav-tab">Logout</button>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="main-content">
+      <div className="job-reviews-main-content">
         {/* Job Completion Section */}
         <div className="completion-section">
           <h2 className="section-title">Job Completion</h2>
