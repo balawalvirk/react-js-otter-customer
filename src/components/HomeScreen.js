@@ -9,9 +9,7 @@ import container5 from '../assets/icons/home icons/Container (5).png';
 import container6 from '../assets/icons/home icons/Container (6).png';
 import container7 from '../assets/icons/home icons/Container (7).png';
 import container from '../assets/icons/home icons/Container.png';
-import chatIcon from '../assets/icons/home icons/chat.png';
-
-const HomeScreen = () => {
+const HomeScreen = ({ onNavigate }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [chatMessage, setChatMessage] = useState('');
 
@@ -92,7 +90,7 @@ const HomeScreen = () => {
   return (
     <div className="home-container">
       {/* Header Component */}
-      <Header />
+      <Header activeTab="home" onNavigate={onNavigate} />
 
       {/* Main Content */}
       <div className="main-content">
@@ -111,7 +109,9 @@ const HomeScreen = () => {
                 className="chat-input"
               />
               <button type="submit" className="send-button">
-                  <img src={chatIcon} alt="Send" className="send-icon" />
+                  <svg className="send-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M2.5 10L17.5 10M17.5 10L12.5 5M17.5 10L12.5 15" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
               </button>
             </div>
           </form>
@@ -140,7 +140,7 @@ const HomeScreen = () => {
           
           <form onSubmit={handleSearch} className="search-form">
             <div className="search-container">
-              <svg className="search-icon" width="10" height="10" viewBox="0 0 20 20" fill="none">
+              <svg className="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16ZM20 20l-4.35-4.35" stroke="#9CA3AF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               <input

@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Header from './Header';
 import './ChatScreen.css';
 
-const ChatScreen = () => {
-  const navigate = useNavigate();
+const ChatScreen = ({ onNavigate }) => {
   const [message, setMessage] = useState('');
 
   const handleSubmit = (e) => {
@@ -22,13 +20,13 @@ const ChatScreen = () => {
   return (
     <div className="chat-container">
       {/* Header Component */}
-      <Header />
+      <Header activeTab="chat" onNavigate={onNavigate} />
 
       {/* Main Content */}
       <div className="main-content">
         {/* Chat Header */}
         <div className="chat-header">
-          <button className="back-button" onClick={() => navigate('/home')}>
+          <button className="back-button" onClick={() => onNavigate('home')}>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M12.5 15L7.5 10L12.5 5" stroke="#374151" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>

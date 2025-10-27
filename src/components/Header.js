@@ -1,64 +1,50 @@
 import React from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
 import './Header.css';
 
-const Header = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  
-  const getActiveTab = () => {
-    const path = location.pathname;
-    if (path === '/home') return 'home';
-    if (path === '/chat') return 'chat';
-    if (path === '/tracking') return 'tracking';
-    if (path === '/reviews') return 'job-reviews';
-    return 'home';
-  };
-
-  const activeTab = getActiveTab();
+const Header = ({ activeTab, onNavigate }) => {
   return (
     <div className="header-container">
       <div className="top-nav">
         <div className="nav-tabs">
           <button 
             className={`nav-tab ${activeTab === 'home' ? 'active' : ''}`} 
-            onClick={() => navigate('/home')}
+            onClick={() => onNavigate('home')}
           >
             Home
           </button>
           <button 
             className={`nav-tab ${activeTab === 'chat' ? 'active' : ''}`} 
-            onClick={() => navigate('/chat')}
+            onClick={() => onNavigate('chat')}
           >
             Chat
           </button>
           <button 
             className={`nav-tab ${activeTab === 'tracking' ? 'active' : ''}`} 
-            onClick={() => navigate('/tracking')}
+            onClick={() => onNavigate('tracking')}
           >
             Tracking
           </button>
           <button 
             className={`nav-tab ${activeTab === 'job-reviews' ? 'active' : ''}`} 
-            onClick={() => navigate('/reviews')}
+            onClick={() => onNavigate('job-reviews')}
           >
             Job Reviews
           </button>
           <button 
             className={`nav-tab ${activeTab === 'history' ? 'active' : ''}`} 
-            onClick={() => navigate('/history')}
+            onClick={() => onNavigate('history')}
           >
             History
           </button>
           <button 
             className={`nav-tab ${activeTab === 'profile' ? 'active' : ''}`} 
-            onClick={() => navigate('/profile')}
+            onClick={() => onNavigate('profile')}
           >
             Profile
           </button>
           <button 
             className={`nav-tab ${activeTab === 'logout' ? 'active' : ''}`} 
-            onClick={() => navigate('/logout')}
+            onClick={() => onNavigate('logout')}
           >
             Logout
           </button>

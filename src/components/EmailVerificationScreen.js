@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import ProgressIndicator from './ProgressIndicator';
 import './EmailVerificationScreen.css';
 
-const EmailVerificationScreen = () => {
-  const navigate = useNavigate();
+const EmailVerificationScreen = ({ onVerify }) => {
   const [code, setCode] = useState(['', '', '', '']);
 
   const handleChange = (index, value) => {
@@ -16,8 +14,7 @@ const EmailVerificationScreen = () => {
 
   const handleVerify = (e) => {
     e.preventDefault();
-    console.log('Email verified with code:', code.join(''));
-    navigate('/payment');
+    onVerify(code.join(''));
   };
 
   return (

@@ -86,7 +86,7 @@
   align-items: center;
   background: white;
   border: 1px solid #D1D5DB;
-  border-radius: 0.25rem;
+  border-radius: 0.75rem;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -105,9 +105,9 @@
 }
 
 .send-button {
-    background: white;
+  background: #0D90B2;
   border: none;
-  padding: 0.5rem 0.5rem;
+  padding: 1rem 1.5rem;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -116,12 +116,12 @@
 }
 
 .send-button:hover {
-  /* background: #0B7A9A; */
+  background: #0B7A9A;
 }
 
 .send-icon {
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
 }
 
@@ -190,7 +190,6 @@
   left: 1rem;
   width: 20px;
   height: 20px;
-  object-fit: contain;
 }
 
 .search-input {
@@ -257,7 +256,7 @@
   font-size: 0.875rem;
   color: #6B7280;
   margin: 0;
-  line-height: 0.1;
+  line-height: 1.4;
 }
 
 /* Responsive Design */
