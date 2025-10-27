@@ -1,7 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Header from './Header';
+import locationImage from '../assets/images/location.png';
+import tickcircleImage from '../assets/icons/tickcircle.png';
 import './TrackingScreen.css';
 
 const TrackingScreen = () => {
+  const navigate = useNavigate();
+
   const handleCallTech = () => {
     console.log('Calling technician');
   };
@@ -16,18 +22,8 @@ const TrackingScreen = () => {
 
   return (
     <div className="tracking-container">
-      {/* Top Navigation */}
-      <div className="top-nav">
-        <div className="nav-tabs">
-          <button className="nav-tab">Home</button>
-          <button className="nav-tab">Chat</button>
-          <button className="nav-tab active">Tracking</button>
-          <button className="nav-tab">Job Reviews</button>
-          <button className="nav-tab">History</button>
-          <button className="nav-tab">Profile</button>
-          <button className="nav-tab">Logout</button>
-        </div>
-      </div>
+      {/* Header Component */}
+      <Header activeTab="tracking" />
 
       {/* Main Content */}
       <div className="tracking-main-content">
@@ -41,7 +37,8 @@ const TrackingScreen = () => {
           </div>
           
           <div className="map-container">
-            <div className="map-placeholder">
+            <img src={locationImage} alt="Location Map" className="map-image" />
+            <div className="map-overlay">
               <div className="map-pin">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                   <path d="M16 2C10.477 2 6 6.477 6 12C6 20 16 30 16 30S26 20 26 12C26 6.477 21.523 2 16 2Z" fill="black"/>
@@ -66,76 +63,77 @@ const TrackingScreen = () => {
         </div>
 
         {/* Job Progress Section */}
-        <div className="tracking-progress-section">
+        <div className="tracking-section">
           <h2 className="section-title">Job Progress</h2>
-          <div className="tracking-tracking-progress-steps">
+          <div className="tracking-progress-steps">
             <div className="tracking-progress-step completed">
-              <div className="tracking-step-icon">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M1 6L5 10L15 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+              <div className="step-left">
+                <div className="tracking-step-icon">
+                  <img src={tickcircleImage} alt="Completed" className="tick-icon" />
+                </div>
+                <div className="tracking-step-content">
+                  <p className="tracking-step-title">Job Accepted</p>
+                </div>
               </div>
-              <div className="tracking-step-content">
-                <p className="tracking-step-title">Job Accepted</p>
-                <p className="tracking-step-time">2:15 PM</p>
-              </div>
+              <p className="tracking-step-time">2:15 PM</p>
             </div>
             
             <div className="tracking-progress-step completed">
-              <div className="tracking-step-icon">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M1 6L5 10L15 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+              <div className="step-left">
+                <div className="tracking-step-icon">
+                  <img src={tickcircleImage} alt="Completed" className="tick-icon" />
+                </div>
+                <div className="tracking-step-content">
+                  <p className="tracking-step-title">Technician En Route</p>
+                </div>
               </div>
-              <div className="tracking-step-content">
-                <p className="tracking-step-title">Technician En Route</p>
-                <p className="tracking-step-time">2:42 PM</p>
-              </div>
+              <p className="tracking-step-time">2:42 PM</p>
             </div>
             
             <div className="tracking-progress-step completed">
-              <div className="tracking-step-icon">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M1 6L5 10L15 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+              <div className="step-left">
+                <div className="tracking-step-icon">
+                  <img src={tickcircleImage} alt="Completed" className="tick-icon" />
+                </div>
+                <div className="tracking-step-content">
+                  <p className="tracking-step-title">Arrived On Site</p>
+                </div>
               </div>
-              <div className="tracking-step-content">
-                <p className="tracking-step-title">Arrived On Site</p>
-                <p className="tracking-step-time">3:18 PM</p>
-              </div>
+              <p className="tracking-step-time">3:18 PM</p>
             </div>
             
             <div className="tracking-progress-step current">
-              <div className="tracking-step-icon">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M1 6L5 10L15 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <div className="tracking-step-content">
-                <p className="tracking-step-title current-text">Job Completed</p>
+              <div className="step-left">
+                <div className="tracking-step-icon">
+                  <img src={tickcircleImage} alt="Current" className="tick-icon current-icon" />
+                </div>
+                <div className="tracking-step-content">
+                  <p className="tracking-step-title current-text">Job Completed</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Your Technician Section */}
-        <div className="technician-section">
+        <div className="tracking-section">
           <h2 className="section-title">Your Technician</h2>
           <div className="technician-profile">
             <div className="tech-avatar">
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <circle cx="20" cy="20" r="20" fill="#3B82F6"/>
-                <circle cx="20" cy="16" r="6" fill="white"/>
-                <path d="M8 32C8 26.4772 12.4772 22 18 22H22C27.5228 22 32 26.4772 32 32" fill="white"/>
+                <circle cx="20" cy="20" r="20" stroke="#3B82F6" strokeWidth="2" fill="none"/>
+                <circle cx="20" cy="16" r="6" stroke="#3B82F6" strokeWidth="2" fill="none"/>
+                <path d="M8 32C8 26.4772 12.4772 22 18 22H22C27.5228 22 32 26.4772 32 32" stroke="#3B82F6" strokeWidth="2" fill="none"/>
               </svg>
             </div>
             <div className="tech-details">
               <p className="tech-name">Mike Johnson</p>
               <div className="tech-rating">
-                <span className="rating">4.9</span>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M8 1L10.09 5.26L15 6L11.5 9.74L12.18 15L8 12.77L3.82 15L4.5 9.74L1 6L5.91 5.26L8 1Z" fill="#FCD34D"/>
                 </svg>
+                <span className="rating">4.9</span>
+                <span className="bullet">•</span>
                 <span className="license">License #PLB-2847</span>
               </div>
             </div>
@@ -157,7 +155,7 @@ const TrackingScreen = () => {
         </div>
 
         {/* Job Details Section */}
-        <div className="job-details-section">
+        <div className="tracking-section">
           <h2 className="section-title">Job Details</h2>
           <div className="job-details">
             <div className="detail-row">

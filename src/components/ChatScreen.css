@@ -19,6 +19,8 @@
   display: flex;
   flex-direction: column;
   height: calc(100vh - 8rem);
+  width: 60%;
+  align-self: center;
 }
 
 .chat-header {
@@ -96,9 +98,14 @@
   width: 100%;
 }
 
-.message-input-container {
+.input-and-buttons {
   display: flex;
   align-items: center;
+  gap: 0.75rem;
+}
+
+.message-input-container {
+  flex: 1;
   background: white;
   border: 1px solid #D1D5DB;
   border-radius: 0.5rem;
@@ -107,7 +114,7 @@
 }
 
 .message-input {
-  flex: 1;
+  width: 100%;
   padding: 1rem;
   border: none;
   outline: none;
@@ -119,32 +126,51 @@
   color: #9CA3AF;
 }
 
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .voice-button {
-  background: none;
-  border: none;
+  background: white;
+  border: 1px solid #D1D5DB;
+  border-radius: 0.5rem;
   padding: 1rem;
   cursor: pointer;
   color: #374151;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .voice-button:hover {
   color: #0D90B2;
+  border-color: #0D90B2;
 }
 
 .send-button {
   background: #0D90B2;
   border: none;
-  padding: 1rem;
+  border-radius: 0.5rem;
+  padding: 0.4rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .send-button:hover {
   background: #0B7A9A;
+}
+
+.send-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
 
 /* Responsive Design */

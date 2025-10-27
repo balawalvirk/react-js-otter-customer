@@ -70,35 +70,38 @@ const JobReviewsScreen = () => {
 
         {/* Estimate Review Section */}
         <div className="estimate-section">
-          <h2 className="section-title">Estimate Review</h2>
-          <div className="cost-breakdown">
-            <div className="cost-row">
-              <span className="cost-label">Service Fee</span>
-              <span className="cost-value">$50.00</span>
-            </div>
-            <div className="cost-row">
-              <span className="cost-label">Parts Cost</span>
-              <span className="cost-value">$120.00</span>
-            </div>
-            <div className="cost-separator"></div>
-            <div className="cost-row total-row">
-              <span className="cost-label">Total</span>
-              <span className="cost-value">$170.00</span>
+          <div className="estimate-card">
+            <h2 className="estimate-title">Estimate Review</h2>
+            <div className="cost-breakdown">
+              <div className="cost-row">
+                <span className="cost-label">Service Fee</span>
+                <span className="cost-value">$50.00</span>
+              </div>
+              <div className="cost-separator"></div>
+              <div className="cost-row">
+                <span className="cost-label">Parts Cost</span>
+                <span className="cost-value">$120.00</span>
+              </div>
+              <div className="cost-separator"></div>
+              <div className="cost-row total-row">
+                <span className="cost-label">Total</span>
+                <span className="cost-value">$170.00</span>
+              </div>
             </div>
           </div>
-          <p className="payment-note">Payment will be processed after customer acceptance</p>
-          <div className="estimate-actions">
-            <button className="reject-button" onClick={handleReject}>
-              Reject
-            </button>
-            <button className="accept-button" onClick={handleAccept}>
-              Accept
-            </button>
-          </div>
+        </div>
+        <div className="estimate-actions">
+          <button className="reject-button" onClick={handleReject}>
+            Reject
+          </button>
+          <button className="accept-button" onClick={handleAccept}>
+            Accept
+          </button>
         </div>
 
         {/* Customer Review Section */}
         <div className="review-section">
+          <p className="payment-note">Payment will be processed after customer acceptance</p>
           <h2 className="section-title">Customer Review</h2>
           <div className="rating-display">
             <div className="overall-rating">
