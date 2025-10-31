@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Header from './Header';
 import './JobReviewsScreen.css';
 
 const JobReviewsScreen = () => {
@@ -28,18 +29,8 @@ const JobReviewsScreen = () => {
 
   return (
     <div className="job-reviews-container">
-      {/* Top Navigation */}
-      <div className="top-nav">
-        <div className="nav-tabs">
-          <button className="nav-tab">Home</button>
-          <button className="nav-tab">Chat</button>
-          <button className="nav-tab">Tracking</button>
-          <button className="nav-tab active">Job Reviews</button>
-          <button className="nav-tab">History</button>
-          <button className="nav-tab">Profile</button>
-          <button className="nav-tab">Logout</button>
-        </div>
-      </div>
+      {/* Header Component */}
+      <Header activeTab="job-reviews" />
 
       {/* Main Content */}
       <div className="job-reviews-main-content">

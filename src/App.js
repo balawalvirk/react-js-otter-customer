@@ -10,6 +10,7 @@ import HomeScreen from './components/HomeScreen';
 import ChatScreen from './components/ChatScreen';
 import TrackingScreen from './components/TrackingScreen';
 import JobReviewsScreen from './components/JobReviewsScreen';
+import HistoryScreen from './components/HistoryScreen';
 import './App.css';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/chat" element={<ChatScreen />} />
           <Route path="/tracking" element={<TrackingScreen />} />
           <Route path="/job-reviews" element={<JobReviewsScreen />} />
+          <Route path="/history" element={<HistoryScreen />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
