@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import Header from './Header';
+import PlumbingServicesModal from './home/PlumbingServicesModal';
+import AvailableServiceProvidersModal from './home/AvailableServiceProvidersModal';
+import BookServiceModal from './home/BookServiceModal';
 import './HomeScreen.css';
 import container1 from '../assets/icons/home icons/Container (1).png';
 import container2 from '../assets/icons/home icons/Container (2).png';
@@ -12,6 +15,9 @@ import container from '../assets/icons/home icons/Container.png';
 const HomeScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [chatMessage, setChatMessage] = useState('');
+  const [showPlumbingModal, setShowPlumbingModal] = useState(false);
+  const [showProvidersModal, setShowProvidersModal] = useState(false);
+  const [showBookModal, setShowBookModal] = useState(false);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -156,7 +162,12 @@ const HomeScreen = () => {
           {/* Service Cards Grid */}
           <div className="services-grid">
             {services.map((service) => (
-              <div key={service.id} className="service-card">
+              <div 
+                key={service.id} 
+                className="service-card"
+                onClick={() => service.id === 1 && setShowPlumbingModal(true)}
+                style={{ cursor: service.id === 1 ? 'pointer' : 'default' }}
+              >
                 <div className="service-icon" >
                   <img src={service.icon} alt={service.title} className="service-icon-img" />
                 </div>
@@ -167,6 +178,18 @@ const HomeScreen = () => {
           </div>
         </div>
       </div>
+      
+      <PlumbingServicesModal 
+        isOpen={showPlumbingModal}
+        onClose={() => setShowPlumbingModal(false)}
+        onOpenProviders={() => { setShowPlumbingModal(false); setShowProvidersModal(true); }}
+      />
+      <AvailableServiceProvidersModal 
+        isOpen={showProvidersModal}
+        onClose={() => setShowProvidersModal(false)}
+        onBook={() => { setShowProvidersModal(false); setShowBookModal(true); }}
+      />
+      <BookServiceModal isOpen={showBookModal} onClose={() => setShowBookModal(false)} />
     </div>
   );
 };
