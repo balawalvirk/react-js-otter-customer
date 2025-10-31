@@ -1,3 +1,19 @@
+/* Global normalization to eliminate dev vs prod size differences */
+html {
+  font-size: 13px;               /* reduce baseline to offset ~20% prod growth */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Prevent mobile Safari/iOS auto-zoom on controls */
+input, textarea, select, button { font-size: 16px; }
+
+/* Safer viewport height for mobile (optional utility) */
+:root { --vh: 1vh; }
+@supports (height: 1dvh) { :root { --vh: 1dvh; } }
+.fullscreen { min-height: calc(var(--vh) * 100); }
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

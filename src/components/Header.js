@@ -46,7 +46,7 @@ const Header = ({ activeTab }) => {
           </button>
           <button 
             className={`nav-tab ${activeTab === 'logout' ? 'active' : ''}`} 
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/logout')}
           >
             Logout
           </button>

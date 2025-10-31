@@ -222,7 +222,7 @@
 
 .bar-container {
   /* flex: 1; */
-  width: 40%;
+  width: 300px;
   height: 8px;
   background: #E5E7EB;
   border-radius: 4px;
