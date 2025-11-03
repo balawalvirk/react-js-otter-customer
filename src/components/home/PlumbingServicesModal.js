@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import './PlumbingServicesModal.css';
-import plumbingIcon from '../../assets/icons/home icons/Container.png';
 
-const PlumbingServicesModal = ({ isOpen, onClose, onOpenProviders }) => {
+const PlumbingServicesModal = ({ isOpen, onClose, onOpenProviders, service }) => {
   const [selectedServiceTime, setSelectedServiceTime] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
 
-  if (!isOpen) return null;
+  if (!isOpen || !service) return null;
 
   return (
     <div className="plumbing-modal-overlay" onClick={onClose}>
@@ -17,9 +16,9 @@ const PlumbingServicesModal = ({ isOpen, onClose, onOpenProviders }) => {
         <div className="plumbing-modal-header">
           <div className="header-left">
             {/* <div className="service-icon-box"> */}
-              <img src={plumbingIcon} alt="Plumbing" width={30} height={30} />
+              <img src={service.icon} alt={service.title} width={30} height={30} />
             {/* </div> */}
-            <h2 className="modal-title-text">Plumbing Services</h2>
+            <h2 className="modal-title-text">{service.title} Services</h2>
           </div>
           <button className="close-btn" onClick={onClose}>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -33,13 +32,13 @@ const PlumbingServicesModal = ({ isOpen, onClose, onOpenProviders }) => {
           <svg className="search-icon-modal" width="18" height="18" viewBox="0 0 20 20" fill="none">
             <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16ZM20 20l-4.35-4.35" stroke="#9CA3AF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          <input
-            type="text"
-            className="search-input-modal"
-            placeholder="Search for plumbing services (e.g., leak repair, drain cleaning)"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
+            <input
+              type="text"
+              className="search-input-modal"
+              placeholder={`Search for ${service.title.toLowerCase()} services (e.g., repair, installation, maintenance)`}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
         </div>
 
         {/* Service Location */}

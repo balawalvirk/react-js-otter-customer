@@ -1,9 +1,10 @@
 import React from 'react';
 import './AvailableServiceProvidersModal.css';
 import privacyIcon from '../../assets/icons/privacy.png';
+import phoneIcon from '../../assets/icons/phone.png';
 
-const AvailableServiceProvidersModal = ({ isOpen, onClose, onBook }) => {
-  if (!isOpen) return null;
+const AvailableServiceProvidersModal = ({ isOpen, onClose, onBook, service }) => {
+  if (!isOpen || !service) return null;
 
   const providers = [
     {
@@ -56,13 +57,15 @@ const AvailableServiceProvidersModal = ({ isOpen, onClose, onBook }) => {
 
         {/* Providers List */}
         <div className="providers-list">
-          {providers.map((provider) => (
+          {providers.map((provider) => {
+            const displayName = provider.companyName.replace(/Plumbing/gi, service.title);
+            return (
             <div key={provider.id} className="provider-card">
               {/* Top Section: Company Name, Verified Badge, Rating, Price, Time */}
               <div className="provider-card-top">
                 <div className="provider-left">
                   <div className="provider-name-row">
-                    <h3 className="provider-name">{provider.companyName}</h3>
+                    <h3 className="provider-name">{displayName}</h3>
                     {provider.verified && (
                       <span className="verified-badge">
                         <img src={privacyIcon} alt="Verified" className="verified-icon" />
@@ -101,14 +104,12 @@ const AvailableServiceProvidersModal = ({ isOpen, onClose, onBook }) => {
               <div className="provider-card-bottom">
                 <button className="contact-now-btn" onClick={() => onBook && onBook(provider)}>Contact Now</button>
                 <div className="phone-box">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M3 5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H8.28C8.76228 3 9.20571 3.214 9.50213 3.57L11.2221 5.57C11.5186 5.926 11.962 6.14 12.4443 6.14H19C19.5304 6.14 20.0391 6.35071 20.4142 6.72579C20.7893 7.10086 21 7.60957 21 8.14V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5Z" stroke="#111827" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  <img src={phoneIcon} alt="Phone" width={16} height={16} />
                   <span>{provider.phone}</span>
                 </div>
               </div>
             </div>
-          ))}
+          );})}
         </div>
       </div>
     </div>

@@ -135,7 +135,9 @@
   background: white;
   border: 1px solid #D1D5DB;
   border-radius: 0.5rem;
-  padding: 1rem;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   cursor: pointer;
   color: #374151;
   transition: all 0.2s ease;
@@ -154,7 +156,9 @@
   background: #0D90B2;
   border: none;
   border-radius: 0.5rem;
-  padding: 0.4rem;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -168,8 +172,8 @@
 }
 
 .send-icon {
-  width: 40px;
-  height: 40px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
 }
 

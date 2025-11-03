@@ -4,6 +4,7 @@ import ProgressIndicator from './ProgressIndicator';
 import googleIcon from '../assets/icons/google.png';
 import appleIcon from '../assets/icons/apple.png';
 import facebookIcon from '../assets/icons/facebook.png';
+import phoneIcon from '../assets/icons/phone.png';
 import './CreateAccountScreen.css';
 
 const CreateAccountScreen = () => {
@@ -75,12 +76,7 @@ const CreateAccountScreen = () => {
               <div className="form-group">
                 <label htmlFor="phone">Phone (Optional):</label>
                 <div className="input-container">
-                  <svg className="input-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M2.5 3.75C2.5 2.50736 3.50736 1.5 4.75 1.5H15.25C16.4926 1.5 17.5 2.50736 17.5 3.75V16.25C17.5 17.4926 16.4926 18.5 15.25 18.5H4.75C3.50736 18.5 2.5 17.4926 2.5 16.25V3.75Z" stroke="#9CA3AF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M8.75 6.25H11.25" stroke="#9CA3AF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M6.25 8.75H13.75" stroke="#9CA3AF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M6.25 11.25H13.75" stroke="#9CA3AF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  <img src={phoneIcon} alt="Phone" className="input-icon" width="20" height="20" />
                   <input
                     type="tel"
                     id="phone"

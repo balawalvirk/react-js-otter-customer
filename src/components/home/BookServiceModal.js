@@ -1,8 +1,61 @@
 import React from 'react';
 import './BookServiceModal.css';
 
-const BookServiceModal = ({ isOpen, onClose }) => {
-  if (!isOpen) return null;
+const BookServiceModal = ({ isOpen, onClose, service }) => {
+  if (!isOpen || !service) return null;
+
+  // Generate service variations based on service type
+  const getServiceDetails = () => {
+    const serviceMap = {
+      'Plumbing': {
+        main: 'Emergency Plumbing Services',
+        sub: 'Pipe Leak Solutions',
+        desc: 'Repair dripping faucets, burst pipes, and water leaks'
+      },
+      'HVAC': {
+        main: 'HVAC Services',
+        sub: 'Air Conditioning Solutions',
+        desc: 'Installation, repair, and maintenance for heating and cooling systems'
+      },
+      'Roofing': {
+        main: 'Roofing Services',
+        sub: 'Leak Repair Solutions',
+        desc: 'Fix roof leaks, replace shingles, and restore roof integrity'
+      },
+      'Cleaning': {
+        main: 'Cleaning Services',
+        sub: 'Deep Clean Solutions',
+        desc: 'Professional deep cleaning for homes and offices'
+      },
+      'Electrical': {
+        main: 'Electrical Services',
+        sub: 'Wiring & Repair Solutions',
+        desc: 'Electrical installations, repairs, and safety inspections'
+      },
+      'Appliance': {
+        main: 'Appliance Services',
+        sub: 'Repair & Installation',
+        desc: 'Fix and install home appliances efficiently'
+      },
+      'Painting': {
+        main: 'Painting Services',
+        sub: 'Interior & Exterior Solutions',
+        desc: 'Professional interior and exterior painting services'
+      },
+      'Landscaping': {
+        main: 'Landscaping Services',
+        sub: 'Lawn Care Solutions',
+        desc: 'Lawn maintenance, gardening, and landscape design'
+      }
+    };
+    return serviceMap[service.title] || {
+      main: `${service.title} Services`,
+      sub: `${service.title} Solutions`,
+      desc: service.description
+    };
+  };
+
+  const serviceDetails = getServiceDetails();
 
   return (
     <div className="book-modal-overlay" onClick={onClose}>
@@ -20,13 +73,13 @@ const BookServiceModal = ({ isOpen, onClose }) => {
         <div className="selected-service">
           <div className="service-row">
             <div className="service-titles">
-              <span className="service-main">Emergency Plumbing Services</span>
+              <span className="service-main">{serviceDetails.main}</span>
               <span className="arrow">→</span>
-              <span className="service-sub">Pipe Leak Solutions</span>
+              <span className="service-sub">{serviceDetails.sub}</span>
             </div>
             <span className="availability">Currently Available</span>
           </div>
-          <div className="service-description">Repair dripping faucets, burst pipes, and water leaks</div>
+          <div className="service-description">{serviceDetails.desc}</div>
 
           <div className="provider-row">
             <div className="profile-left">
@@ -61,7 +114,7 @@ const BookServiceModal = ({ isOpen, onClose }) => {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
               <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="#111827" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            <span>Immediate Plumbing Help</span>
+            <span>Immediate {service?.title} Help</span>
           </div>
           <div className="urgent-row">
             <div className="urgent-texts">

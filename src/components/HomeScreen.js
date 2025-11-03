@@ -12,12 +12,15 @@ import container5 from '../assets/icons/home icons/Container (5).png';
 import container6 from '../assets/icons/home icons/Container (6).png';
 import container7 from '../assets/icons/home icons/Container (7).png';
 import container from '../assets/icons/home icons/Container.png';
+import chatIcon from '../assets/icons/home icons/chat.png';
+
 const HomeScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [chatMessage, setChatMessage] = useState('');
-  const [showPlumbingModal, setShowPlumbingModal] = useState(false);
+  const [showServiceModal, setShowServiceModal] = useState(false);
   const [showProvidersModal, setShowProvidersModal] = useState(false);
   const [showBookModal, setShowBookModal] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -114,11 +117,14 @@ const HomeScreen = () => {
                 placeholder="Talk to Otter"
                 className="chat-input"
               />
-              <button type="submit" className="send-button">
+              {/* <button type="submit" className="send-button">
                   <svg className="send-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M2.5 10L17.5 10M17.5 10L12.5 5M17.5 10L12.5 15" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-              </button>
+              </button> */}
+               {/* <button type="submit" className="send-button"> */}
+                  <img src={chatIcon} alt="Send" height={30} width={30} style={{marginRight:7}}  />
+                {/* </button> */}
             </div>
           </form>
 
@@ -165,8 +171,11 @@ const HomeScreen = () => {
               <div 
                 key={service.id} 
                 className="service-card"
-                onClick={() => service.id === 1 && setShowPlumbingModal(true)}
-                style={{ cursor: service.id === 1 ? 'pointer' : 'default' }}
+                onClick={() => {
+                  setSelectedService(service);
+                  setShowServiceModal(true);
+                }}
+                style={{ cursor: 'pointer' }}
               >
                 <div className="service-icon" >
                   <img src={service.icon} alt={service.title} className="service-icon-img" />
@@ -180,16 +189,22 @@ const HomeScreen = () => {
       </div>
       
       <PlumbingServicesModal 
-        isOpen={showPlumbingModal}
-        onClose={() => setShowPlumbingModal(false)}
-        onOpenProviders={() => { setShowPlumbingModal(false); setShowProvidersModal(true); }}
+        isOpen={showServiceModal}
+        service={selectedService}
+        onClose={() => setShowServiceModal(false)}
+        onOpenProviders={() => { setShowServiceModal(false); setShowProvidersModal(true); }}
       />
       <AvailableServiceProvidersModal 
         isOpen={showProvidersModal}
+        service={selectedService}
         onClose={() => setShowProvidersModal(false)}
         onBook={() => { setShowProvidersModal(false); setShowBookModal(true); }}
       />
-      <BookServiceModal isOpen={showBookModal} onClose={() => setShowBookModal(false)} />
+      <BookServiceModal 
+        isOpen={showBookModal} 
+        service={selectedService}
+        onClose={() => setShowBookModal(false)} 
+      />
     </div>
   );
 };
