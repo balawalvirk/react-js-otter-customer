@@ -251,10 +251,10 @@
 .row-texts.fullwidth { width: 100%; }
 .row-title { font-weight: 700; color: #111827; }
 .row-sub { color: #111827; font-size: 0.9rem; }
-.tag-button { background: #FFFFFF; border: 1px solid #D1D5DB; border-radius: 0.1rem; padding: 0.5rem 0.75rem; font-weight: 700; color: #111827; }
+.tag-button { background: #FFFFFF; border: 1px solid #D1D5DB; border-radius: 0.1rem; font-size: small;  padding: 0.6rem 0.95rem; font-weight: 100; color: #111827; }
 .tag-button.success { background: #E0F2FE; color: #111827; border-color: #0D90B2; }
 .panel-input { width: 100%; height: 40px; border: 1px solid #E5E7EB; border-radius: 0.1rem; padding: 0 0.75rem; color: #111827; }
 .panel-input::placeholder { color: #111827; }
-.small-button { background: #FFFFFF; border: 1px solid #D1D5DB; border-radius: 0.1rem; padding: 0.4rem 0.75rem; font-weight: 700; }
+.small-button { background: #FFFFFF; border: 1px solid #D1D5DB; border-radius: 0.1rem; font-size: small; padding: 0.6rem 0.95rem; font-weight: 100; }
 
 

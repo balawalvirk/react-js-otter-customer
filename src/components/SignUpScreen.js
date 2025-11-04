@@ -75,12 +75,21 @@ const SignUpScreen = () => {
             </div>
 
             {/* Continue Button */}
-            <button type="button" className="continue-button" onClick={handleContinue}>
+            {/* <button type="button" className="continue-button" onClick={handleContinue}>
               Continue
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path d="M4.16667 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            </button>
+            </button> */}
+
+            <div className="actions">
+						<button className="primary" onClick={handleContinue}>Continue
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M4.16667 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+
+						</button>
+					</div>
           </div>
         </div>
       </div>

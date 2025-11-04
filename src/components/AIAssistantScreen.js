@@ -27,13 +27,20 @@ const AIAssistantScreen = () => {
                 <p>Allow Other AI to communicate with service providers on your behalf to get quotes and schedule appointments</p>
                 <div className="ai-status-container">
                   <span className="ai-status">{aiEnabled ? 'Enabled' : 'Disabled'}</span>
-                  <div className="toggle-container">
-                    <button 
-                      className={`toggle ${aiEnabled ? 'active' : ''}`}
-                      onClick={() => setAiEnabled(!aiEnabled)}
-                    >
-                      <div className="toggle-slider"></div>
-                    </button>
+                  <div className="switch">
+                    <input
+                      id="ai-comm-switch"
+                      className="switch-input"
+                      type="checkbox"
+                      checked={aiEnabled}
+                      onChange={() => setAiEnabled(!aiEnabled)}
+                      role="switch"
+                      aria-checked={aiEnabled}
+                    />
+                    <label htmlFor="ai-comm-switch" className="switch-label">
+                      <span className="switch-track"></span>
+                      <span className="switch-thumb"></span>
+                    </label>
                   </div>
                 </div>
               </div>
