@@ -1,5 +1,12 @@
 /* Payment Screen */
-.payment-container { display:flex; min-height:100vh; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto',sans-serif; }
+.payment-container { 
+	display:flex; 
+	min-height:100vh; 
+	font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto',sans-serif;
+	overflow-x: hidden;
+	width: 100%;
+	max-width: 100vw;
+}
 .form-section { width:66.67%; display:flex; align-items:center; justify-content:center; padding:2rem; background-image:url('../assets/images/background.png'); background-size:cover; background-position:center; background-repeat:no-repeat; }
 .payment-card { background:#fff; border-radius:0.1rem; padding:1.5rem; box-shadow:0 10px 25px rgba(0,0,0,.08); width:640px; max-width:100%; }
 .payment-title { margin:0 0 0.75rem 0; text-align:center; font-size:1.75rem; font-weight:700; color:#111827; }
@@ -30,3 +37,82 @@
  }
 .primary:hover { background:#0A7A99; }
 .input-with {padding-right: 180px;}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.payment-container {
+		flex-direction: column;
+	}
+	
+	.form-section {
+		width: 100% !important;
+		padding: 1rem;
+		min-height: auto;
+	}
+	
+	.payment-card {
+		padding: 1.5rem;
+		margin: 0;
+		width: 100%;
+		max-width: 100%;
+		box-sizing: border-box;
+	}
+	
+	.payment-title {
+		font-size: 1.5rem;
+	}
+	
+	.row.two,
+	.grid.two,
+	.grid.three {
+		grid-template-columns: 1fr;
+		gap: 0.5rem;
+	}
+	
+	.ghost {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	
+	.field input {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	
+	.input-with-icon input {
+		padding-right: 40px;
+	}
+	
+	.input-with {
+		padding-right: 40px;
+	}
+	
+	.primary {
+		width: 100%;
+		padding: 0.9rem 1.5rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.form-section {
+		padding: 0.5rem;
+	}
+	
+	.payment-card {
+		padding: 1rem;
+	}
+	
+	.payment-title {
+		font-size: 1.25rem;
+	}
+	
+	.field input {
+		padding: 0.5rem 0.6rem;
+		font-size: 0.875rem;
+	}
+	
+	.ghost {
+		padding: 0.5rem 0.6rem;
+		font-size: 0.875rem;
+	}
+}

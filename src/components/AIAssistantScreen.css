@@ -3,6 +3,9 @@
   display: flex;
   min-height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 .form-section {
@@ -189,4 +192,76 @@
 
 .complete-button:hover {
   background: #0A7A99;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ai-container {
+    flex-direction: column;
+  }
+  
+  .form-section {
+    width: 100% !important;
+    padding: 1rem;
+    min-height: auto;
+  }
+  
+  .ai-card {
+    padding: 1.5rem;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .ai-title {
+    font-size: 1.5rem;
+  }
+  
+  .ai-section {
+    padding: 0.75rem;
+  }
+  
+  .ai-content h3 {
+    font-size: 1rem;
+  }
+  
+  .ai-content p {
+    font-size: 0.8rem;
+  }
+  
+  .complete-button {
+    width: 100%;
+    padding: 0.85rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-section {
+    padding: 0.5rem;
+  }
+  
+  .ai-card {
+    padding: 1rem;
+  }
+  
+  .ai-title {
+    font-size: 1.25rem;
+  }
+  
+  .ai-section {
+    padding: 0.5rem;
+  }
+  
+  .ai-content h3 {
+    font-size: 0.9rem;
+  }
+  
+  .ai-content p {
+    font-size: 0.75rem;
+  }
+  
+  .ai-list {
+    font-size: 0.75rem;
+  }
 }

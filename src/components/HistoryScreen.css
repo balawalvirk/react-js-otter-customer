@@ -237,9 +237,10 @@
 
 .rating-display {
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 0.25rem;
-  align-self:flex-start;
+  align-self: flex-start;
 }
 
 .rating-number {
@@ -333,6 +334,23 @@
     align-self: flex-start;
     flex-direction: row;
     align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .rating-display {
+    flex-direction: row !important;
+    align-items: center !important;
+    margin-top: 0 !important;
+    display: flex !important;
+    align-self: auto !important;
+  }
+  
+  .status-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1.5;
   }
 
   .quick-actions-cards {
@@ -341,6 +359,19 @@
 
   .filter-buttons {
     flex-wrap: wrap;
+  }
+  
+  .job-actions {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    row-gap: 0.5rem;
+  }
+  
+  .job-action-btn {
+    flex: 1 1 calc(50% - 0.25rem);
+    min-width: calc(50% - 0.25rem);
+    max-width: calc(50% - 0.25rem);
+    justify-content: center;
   }
 }
 
