@@ -1,5 +1,5 @@
 .header-container {
-  width: 64%;
+  width: 72%;
   align-self:center;
 }
 
@@ -10,6 +10,9 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .top-nav::-webkit-scrollbar { display: none; }
@@ -31,7 +34,7 @@
   background: white;
   color: #374151;
   border-radius: 0.5rem;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -48,28 +51,94 @@
   background: #F9FAFB;
 }
 
+/* Scroll Arrows */
+.scroll-arrow {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: transparent;
+  border: none;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #374151;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.scroll-arrow:hover {
+  color: #0D90B2;
+}
+
+.scroll-arrow svg {
+  width: 100%;
+  height: 100%;
+}
+
+.scroll-arrow-left {
+  left: -32px;
+}
+
+.scroll-arrow-right {
+  right: -32px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .header-container { 
     width: 100%; 
     align-self: stretch;
+    max-width: 100vw;
+    overflow-x: visible;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    position: relative;
   }
   .top-nav {
-    margin: 0.5rem;
+    margin: 0.5rem auto;
     padding: 0.5rem 1rem;
     overflow-x: auto;
+    overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
+    position: relative;
+    width: calc(100% - 4rem);
+    max-width: calc(100% - 4rem);
+    box-sizing: border-box;
   }
   .nav-tabs {
     justify-content: flex-start;
     gap: 0.5rem;
     flex-wrap: nowrap;
     min-width: max-content;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
   }
   .nav-tab {
     padding: 0.5rem 1rem;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 500;
     flex: 0 0 auto;
     white-space: nowrap;
+  }
+  .scroll-arrow {
+    display: flex !important;
+    z-index: 20;
+    width: 32px;
+    height: 32px;
+  }
+  .scroll-arrow-left {
+    left: -40px;
+  }
+  .scroll-arrow-right {
+    right: -40px;
   }
 }

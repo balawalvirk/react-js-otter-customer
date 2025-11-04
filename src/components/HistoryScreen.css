@@ -6,6 +6,9 @@
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 .history-main-content {
@@ -302,8 +305,15 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .history-container {
+    align-items: center;
+  }
+  
   .history-main-content {
-    margin: 1rem;
+    margin: 1rem auto;
+    width: calc(100% - 2rem);
+    max-width: 100%;
+    box-sizing: border-box;
     padding: 1.5rem;
   }
 

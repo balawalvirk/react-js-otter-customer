@@ -6,6 +6,9 @@
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 
@@ -283,8 +286,15 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .main-content {
-    margin: 1rem;
+  .job-reviews-container {
+    align-items: center;
+  }
+  
+  .job-reviews-main-content {
+    margin: 1rem auto;
+    width: calc(100% - 2rem);
+    max-width: 100%;
+    box-sizing: border-box;
     padding: 1.5rem;
   }
   
@@ -295,7 +305,8 @@
   
   .nav-tab {
     padding: 0.5rem 1rem;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 500;
   }
   
   .rating-display {
@@ -314,5 +325,9 @@
   
   .submit-button {
     align-self: stretch;
+  }
+  
+  .review-textarea {
+    width: 100%;
   }
 }
