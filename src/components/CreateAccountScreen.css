@@ -8,11 +8,10 @@
 /* Right Form Section */
 .form-section {
   width: 66.67%;
-  background: linear-gradient(135deg, #F8FAFC, #F1F5F9);
-  background-image: 
-    radial-gradient(circle at 20% 80%, rgba(13, 144, 178, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(13, 144, 178, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(13, 144, 178, 0.05) 0%, transparent 50%);
+  background-image: url('../assets/images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
