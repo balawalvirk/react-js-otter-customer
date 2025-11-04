@@ -180,7 +180,7 @@
   display: flex;
   align-items: center;
   background: white;
-  border: 1px solid #E5E7EB;
+  border: 0.1px solid #E5E7EB;
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: none;
