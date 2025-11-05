@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import LandingScreen from './components/LandingScreen/landingscreen';
 import WelcomeScreen from './components/WelcomeScreen';
 import SignUpScreen from './components/SignUpScreen';
 import CreateAccountScreen from './components/CreateAccountScreen';
@@ -20,7 +21,8 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<WelcomeScreen />} />
+          <Route path="/" element={<LandingScreen />} />
+          <Route path="/welcome" element={<WelcomeScreen />} />
           <Route path="/signup" element={<SignUpScreen />} />
           <Route path="/create-account" element={<CreateAccountScreen />} />
           <Route path="/email-verification" element={<EmailVerificationScreen />} />
