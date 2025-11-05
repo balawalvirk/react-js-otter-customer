@@ -6,10 +6,20 @@ import icon1 from '../../assets/icons/landingscreen/Container (8).png';
 import icon2 from '../../assets/icons/landingscreen/Container (9).png';
 import icon3 from '../../assets/icons/landingscreen/Container (10).png';
 import icon4 from '../../assets/icons/landingscreen/Container (11).png';
-import featureIcon1 from '../../assets/icons/landingscreen/Container (8).png';
+import featureIcon1 from '../../assets/icons/landingscreen/Container (14).png';
 import featureIcon2 from '../../assets/icons/landingscreen/Container (12).png';
 import featureIcon3 from '../../assets/icons/landingscreen/Container (11).png';
 import featureIcon4 from '../../assets/icons/landingscreen/Container (13).png';
+import frame11Icon from '../../assets/icons/landingscreen/Frame (11).png';
+import stepIcon1 from '../../assets/icons/landingscreen/Icon.png';
+import stepIcon2 from '../../assets/icons/landingscreen/Icon (1).png';
+import stepIcon3 from '../../assets/icons/landingscreen/Icon (3).png';
+import groupImage1 from '../../assets/icons/landingscreen/Group 19.png';
+import groupImage2 from '../../assets/icons/landingscreen/Group 20.png';
+import securityIcon1 from '../../assets/icons/landingscreen/Container (15).png';
+import securityIcon2 from '../../assets/icons/landingscreen/Container (16).png';
+import securityIcon3 from '../../assets/icons/landingscreen/Container (17).png';
+import securityIcon4 from '../../assets/icons/landingscreen/Container (18).png';
 
 import './landingscreen.css';
 
@@ -193,7 +203,7 @@ const LandingScreen = () => {
         <div className="feature-grid">
           <div className="feature-card">
             <div className="feature-icon">
-              <img src={featureIcon1} alt="Insurance Verified" className="feature-icon-img tint-color" />
+              <img src={featureIcon1} alt="Insurance Verified" className="feature-icon-img" />
             </div>
             <h3 className="feature-title">Insurance Verified</h3>
             <p className="feature-description">Every provider carries proper insurance and licensing for their trade.</p>
@@ -225,12 +235,12 @@ const LandingScreen = () => {
       {/* Additional Protection Banner */}
       <section className="protection-banner">
         <div className="protection-banner-content">
-          <div className="protection-icon">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-              <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#0D90B2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+          <div className="protection-header">
+            <div className="protection-icon-wrapper">
+              <img src={frame11Icon} alt="Protection" className="protection-icon-img" />
+            </div>
+            <h3 className="protection-title">Additional Protection Layer</h3>
           </div>
-          <h3 className="protection-title">Additional Protection Layer</h3>
           <p className="protection-text">
             Otter adds up to <span className="highlight-blue">$10M in additional coverage</span> to protect every project.
           </p>
@@ -241,41 +251,37 @@ const LandingScreen = () => {
       <section id="how-it-works" className="how-it-works-section">
         <h2 className="section-title">How It Works</h2>
         <p className="section-subtitle">Three simple steps to protect your next home service project</p>
+        
+        {/* Icons and Connectors Row */}
+        <div className="icons-row">
+          <div className="step-icon purple">
+            <img src={stepIcon1} alt="Step 1" className="step-icon-img" />
+          </div>
+          <div className="step-connector">
+            <img src={groupImage1} alt="Connector" className="connector-image" />
+          </div>
+          <div className="step-icon blue">
+            <img src={stepIcon2} alt="Step 2" className="step-icon-img" />
+          </div>
+          <div className="step-connector">
+            <img src={groupImage2} alt="Connector" className="connector-image" />
+          </div>
+          <div className="step-icon orange">
+            <img src={stepIcon3} alt="Step 3" className="step-icon-img" />
+          </div>
+        </div>
+
+        {/* Text Content Row */}
         <div className="steps-container">
           <div className="step-item">
-            <div className="step-icon purple">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                <path d="M8 10H8.01M8 14H8.01M12 10H12.01M12 14H12.01M16 10H16.01M16 14H16.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
             <h3 className="step-title">Tell us what you Need</h3>
             <p className="step-description">Create your free Otter account and submit your service request. We'll connect you with vetted providers who can help.</p>
           </div>
-          <div className="step-connector">
-            <div className="connector-dot"></div>
-            <div className="connector-dot"></div>
-            <div className="connector-dot"></div>
-          </div>
           <div className="step-item">
-            <div className="step-icon blue">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
             <h3 className="step-title">Approve the quote</h3>
             <p className="step-description">Review quotes from providers. Once you approve one, your payment is held securely in Otter's escrow.</p>
           </div>
-          <div className="step-connector">
-            <div className="connector-dot"></div>
-            <div className="connector-dot"></div>
-            <div className="connector-dot"></div>
-          </div>
           <div className="step-item">
-            <div className="step-icon orange">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
             <h3 className="step-title">Job done = money released</h3>
             <p className="step-description">Payment is only released when the job is completed exactly as quoted. No surprises, no games.</p>
           </div>
@@ -289,47 +295,46 @@ const LandingScreen = () => {
       <section id="protection" className="money-safe-section">
         <h2 className="section-title">Your money stays safe with Otter.</h2>
         <p className="section-subtitle">
-          Our escrow system ensures that your payment is protected until the job is completed to your satisfaction. No more paying upfront and hoping for the best.
+          Our escrow system ensures that your payment is protected until the job is completed to your satisfaction.<br />
+          No more paying upfront and hoping for the best.
         </p>
         <div className="money-safe-content">
           <div className="security-features">
             <div className="security-feature">
               <div className="security-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#374151" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M8 12L10 14L16 8" stroke="#374151" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <img src={securityIcon1} alt="Secure Escrow" className="security-icon-img" />
               </div>
-              <h3 className="security-title">Secure Escrow</h3>
-              <p className="security-description">Your payment is held in a secure escrow account managed by Otter. The provider can't access it until your approve the completed work.</p>
+              <div className="security-text">
+                <h3 className="security-title">Secure Escrow</h3>
+                <p className="security-description">Your payment is held in a secure escrow account managed by Otter. The provider can't access it until your approve the completed work.</p>
+              </div>
             </div>
             <div className="security-feature">
               <div className="security-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="12" r="10" stroke="#374151" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M12 16V12M12 8H12.01" stroke="#374151" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <img src={securityIcon2} alt="Dispute Resolution" className="security-icon-img" />
               </div>
-              <h3 className="security-title">Dispute Resolution</h3>
-              <p className="security-description">If there's an issue, our team steps in to mediate and ensure a fair outcome for both parties.</p>
+              <div className="security-text">
+                <h3 className="security-title">Dispute Resolution</h3>
+                <p className="security-description">If there's an issue, our team steps in to mediate and ensure a fair outcome for both parties.</p>
+              </div>
             </div>
             <div className="security-feature">
               <div className="security-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                  <path d="M8 10H8.01M8 14H8.01M12 10H12.01M12 14H12.01M16 10H16.01M16 14H16.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#374151" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <img src={securityIcon3} alt="Money-Back Guarantee" className="security-icon-img" />
               </div>
-              <h3 className="security-title">Money-Back Guarantee</h3>
-              <p className="security-description">If the job isn't completed as agreed and can't be resolved, you get a full refund, No exceptions.</p>
+              <div className="security-text">
+                <h3 className="security-title">Money-Back Guarantee</h3>
+                <p className="security-description">If the job isn't completed as agreed and can't be resolved, you get a full refund, No exceptions.</p>
+              </div>
             </div>
             <div className="security-feature">
               <div className="security-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                  <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88M13 7C13 9.20914 11.2091 11 9 11C6.79086 11 5 9.20914 5 7C5 4.79086 6.79086 3 9 3C11.2091 3 13 4.79086 13 7Z" stroke="#374151" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <img src={securityIcon4} alt="Fair for Everyone" className="security-icon-img" />
               </div>
-              <h3 className="security-title">Fair for Everyone</h3>
-              <p className="security-description">Providers get paid fairly when they complete quality work. Customers only pay when satisfied.</p>
+              <div className="security-text">
+                <h3 className="security-title">Fair for Everyone</h3>
+                <p className="security-description">Providers get paid fairly when they complete quality work. Customers only pay when satisfied.</p>
+              </div>
             </div>
           </div>
           <div className="make-it-right-card">
