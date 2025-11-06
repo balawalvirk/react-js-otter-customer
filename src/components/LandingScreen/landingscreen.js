@@ -20,15 +20,50 @@ import securityIcon1 from '../../assets/icons/landingscreen/Container (15).png';
 import securityIcon2 from '../../assets/icons/landingscreen/Container (16).png';
 import securityIcon3 from '../../assets/icons/landingscreen/Container (17).png';
 import securityIcon4 from '../../assets/icons/landingscreen/Container (18).png';
+import historyIcon1 from '../../assets/icons/landingscreen/Container (23).png';
+import historyIcon2 from '../../assets/icons/landingscreen/Container (21).png';
+import historyIcon3 from '../../assets/icons/landingscreen/Container (22).png';
+import providerIcon1 from '../../assets/icons/landingscreen/Container (14).png';
+import providerIcon2 from '../../assets/icons/landingscreen/Container (24).png';
+import providerIcon3 from '../../assets/icons/landingscreen/Container (11) 2.png';
+import cameraIcon from '../../assets/icons/landingscreen/camera.png';
+import googleIcon from '../../assets/icons/google.png';
+import appleIcon from '../../assets/icons/apple.png';
+import facebookIcon from '../../assets/icons/facebook.png';
+import phoneIcon from '../../assets/icons/phone.png';
 
 import './landingscreen.css';
 
 const LandingScreen = () => {
   const navigate = useNavigate();
   const [expandedFaq, setExpandedFaq] = useState(null);
+  const [formData, setFormData] = useState({
+    email: '',
+    phone: '',
+    firstName: '',
+    lastName: ''
+  });
 
   const toggleFaq = (index) => {
     setExpandedFaq(expandedFaq === index ? null : index);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    navigate('/create-account');
+  };
+
+  const handleSocialLogin = (provider) => {
+    console.log('Social login:', provider);
+    navigate('/create-account');
   };
 
   const faqs = [
@@ -420,28 +455,30 @@ const LandingScreen = () => {
             <div className="history-features">
               <div className="history-feature">
                 <div className="history-feature-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M9 12L11 14L15 10M17 21H7C5.89543 21 5 20.1046 5 19V5C5 3.89543 5.89543 3 7 3H12.5858C12.851 3 13.1054 3.10536 13.2929 3.29289L18.7071 8.70711C18.8946 8.89464 19 9.149 19 9.41421V19C19 20.1046 18.1046 21 17 21Z" stroke="#0D90B2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  <img src={historyIcon1} alt="Permanent Record Keeping" className="history-feature-icon-img" />
                 </div>
-                <p>All invoices, quotes, photos, and service details stored forever</p>
+                <div className="history-feature-text">
+                  <h3 className="history-feature-title">Permanent Record Keeping</h3>
+                  <p>All invoices, quotes, photos, and service details stored forever</p>
+                </div>
               </div>
               <div className="history-feature">
                 <div className="history-feature-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <circle cx="11" cy="11" r="8" stroke="#0D90B2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M21 21L16.65 16.65" stroke="#0D90B2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  <img src={historyIcon2} alt="Easy Search & Filter" className="history-feature-icon-img" />
                 </div>
-                <p>Find any past service in seconds by date, provider, or service type</p>
+                <div className="history-feature-text">
+                  <h3 className="history-feature-title">Easy Search & Filter</h3>
+                  <p>Find any past service in seconds by date, provider, or service type</p>
+                </div>
               </div>
               <div className="history-feature">
                 <div className="history-feature-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M3 3V21H21M7 16L12 11L16 15L20 11" stroke="#0D90B2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  <img src={historyIcon3} alt="Increases Property Value" className="history-feature-icon-img" />
                 </div>
-                <p>Show buyers a complete maintenance history when selling your home</p>
+                <div className="history-feature-text">
+                  <h3 className="history-feature-title">Increases Property Value</h3>
+                  <p>Show buyers a complete maintenance history when selling your home</p>
+                </div>
               </div>
             </div>
             <div className="history-cta-box">
@@ -453,49 +490,154 @@ const LandingScreen = () => {
 
       {/* For Service Companies Section */}
       <section id="for-providers" className="for-providers-section">
-        <h2 className="section-title">For service companies: get real jobs, guaranteed payment.</h2>
-        <p className="section-subtitle">
-          Otter connects you with serious customers who are ready to hire. No more tire kickers or payment disputes.
+        <h2 className="section-title provider-heading">For service companies: get real jobs,<br />guaranteed payment.</h2>
+        <p className="section-subtitle provider-subtitle">
+          Otter connects you with serious customers who are ready to hire.<br />No more tire kickers or payment disputes.
         </p>
         <div className="provider-cards">
           <div className="provider-card">
             <div className="provider-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#0D90B2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <img src={providerIcon1} alt="Verified Customers" className="provider-icon-img" />
             </div>
             <h3 className="provider-card-title">Verified Customers</h3>
             <p className="provider-card-description">Only work with real customers who have funds ready in escrow</p>
           </div>
           <div className="provider-card">
             <div className="provider-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                <path d="M12 8V12M12 16H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#0D90B2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <img src={providerIcon2} alt="Guaranteed Payment" className="provider-icon-img" />
             </div>
             <h3 className="provider-card-title">Guaranteed Payment</h3>
             <p className="provider-card-description">Payment is escrowed before work begins. No more chasing invoices.</p>
           </div>
           <div className="provider-card">
             <div className="provider-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                <path d="M9 12L11 14L15 10M17 21H7C5.89543 21 5 20.1046 5 19V5C5 3.89543 5.89543 3 7 3H12.5858C12.851 3 13.1054 3.10536 13.2929 3.29289L18.7071 8.70711C18.8946 8.89464 19 9.149 19 9.41421V19C19 20.1046 18.1046 21 17 21Z" stroke="#0D90B2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <img src={providerIcon3} alt="Fair Dispute Resolution" className="provider-icon-img" />
             </div>
             <h3 className="provider-card-title">Fair Dispute Resolution</h3>
             <p className="provider-card-description">Neutral mediation protects you from unfair claims</p>
           </div>
           <div className="provider-card">
             <div className="provider-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15M17 8L12 3M12 3L7 8M12 3V15" stroke="#0D90B2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <img src={cameraIcon} alt="Portfolio Tracking" className="provider-icon-img" />
             </div>
             <h3 className="provider-card-title">Portfolio Tracking</h3>
             <p className="provider-card-description">All your completed work photos stay attached to your profile</p>
           </div>
         </div>
         <button className="become-provider-btn">Apply to become an Otter provider</button>
+      </section>
+
+      {/* Create Account Section */}
+      <section id="create-account" className="create-account-section">
+        <h2 className="section-title">Ready to protect every job?</h2>
+        <p className="section-subtitle">Create your free Otter account in 60 seconds.</p>
+        <div className="create-account-container">
+          <div className="create-account-card">
+            <h3 className="create-account-title">Create your Account</h3>
+            <form onSubmit={handleFormSubmit} className="create-account-form">
+              {/* Email Field */}
+              <div className="form-group">
+                <label htmlFor="landing-email">Email:</label>
+                <div className="input-container">
+                  <svg className="input-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M2.5 6.25L10 10.625L17.5 6.25M2.5 6.25L10 2.5L17.5 6.25M2.5 6.25V15C2.5 15.3315 2.6317 15.6495 2.86612 15.8839C3.10054 16.1183 3.41848 16.25 3.75 16.25H16.25C16.5815 16.25 16.8995 16.1183 17.1339 15.8839C17.3683 15.6495 17.5 15.3315 17.5 15V6.25" stroke="#9CA3AF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <input
+                    type="email"
+                    id="landing-email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="Johnson@gmail.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* Phone Field */}
+              <div className="form-group">
+                <label htmlFor="landing-phone">Phone (Optional):</label>
+                <div className="input-container">
+                  <img src={phoneIcon} alt="Phone" className="input-icon" width="20" height="20" />
+                  <input
+                    type="tel"
+                    id="landing-phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="012 345 6788"
+                  />
+                </div>
+              </div>
+
+              {/* Name Fields */}
+              <div className="name-fields">
+                <div className="form-group">
+                  <label htmlFor="landing-firstName">Full Name:</label>
+                  <input
+                    type="text"
+                    id="landing-firstName"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    placeholder="Enter your name"
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="landing-lastName">Last Name:</label>
+                  <input
+                    type="text"
+                    id="landing-lastName"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                    placeholder="Enter your last name"
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* Create Account Button */}
+              <button type="submit" className="create-account-button">
+                Create Account
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M4.16667 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+
+              {/* Separator */}
+              <div className="separator">
+                <div className="separator-line"></div>
+                <span className="separator-text">or</span>
+                <div className="separator-line"></div>
+              </div>
+
+              {/* Social Login Buttons */}
+              <div className="social-login">
+                <button type="button" className="social-button google" onClick={() => handleSocialLogin('google')}>
+                  <img src={googleIcon} alt="Google" width="20" height="20" />
+                  Google
+                </button>
+
+                <button type="button" className="social-button apple" onClick={() => handleSocialLogin('apple')}>
+                  <img src={appleIcon} alt="Apple" width="20" height="20" />
+                  Apple
+                </button>
+
+                <button type="button" className="social-button facebook" onClick={() => handleSocialLogin('facebook')}>
+                  <img src={facebookIcon} alt="Facebook" width="20" height="20" />
+                  Facebook
+                </button>
+              </div>
+
+              {/* Sign In Link */}
+              <div className="signin-link">
+                Already have an account? <button type="button" className="signin-text" onClick={() => navigate('/welcome')}>Sign in</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </section>
 
       {/* FAQ Section */}
@@ -533,13 +675,9 @@ const LandingScreen = () => {
           <div className="footer-left">
             <div className="footer-logo">
               <img src={logo} alt="Otter Logo" className="footer-logo-img" />
-              <div className="footer-logo-text">
-                <span className="footer-logo-main">OTTER</span>
-                <span className="footer-logo-sub">EXECUTIVE SERVICES</span>
-              </div>
             </div>
             <p className="footer-tagline">
-              The trusted marketplace for vetted service professionals with built-in payment protection.
+              The trusted marketplace<br />for vetted service professionals<br />with built-in payment protection.
             </p>
           </div>
           <div className="footer-right">
