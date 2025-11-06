@@ -127,7 +127,7 @@ const LandingScreen = () => {
               <button className="create-account-btn" onClick={() => navigate('/create-account')}>
                 Create My Otter Account
               </button>
-              <button className="browse-services-btn">
+              <button className="browse-services-btn" onClick={() => navigate('/home')}>
                 Browse Services Near Me
               </button>
             </div>
@@ -309,14 +309,23 @@ const LandingScreen = () => {
         {/* Text Content Row */}
         <div className="steps-container">
           <div className="step-item">
+            <div className="mobile-step-icon">
+              <img src={stepIcon1} alt="Step 1" className="mobile-step-icon-img" />
+            </div>
             <h3 className="step-title">Tell us what you Need</h3>
             <p className="step-description">Create your free Otter account and submit your service request. We'll connect you with vetted providers who can help.</p>
           </div>
           <div className="step-item">
+            <div className="mobile-step-icon">
+              <img src={stepIcon2} alt="Step 2" className="mobile-step-icon-img" />
+            </div>
             <h3 className="step-title">Approve the quote</h3>
             <p className="step-description">Review quotes from providers. Once you approve one, your payment is held securely in Otter's escrow.</p>
           </div>
           <div className="step-item">
+            <div className="mobile-step-icon">
+              <img src={stepIcon3} alt="Step 3" className="mobile-step-icon-img" />
+            </div>
             <h3 className="step-title">Job done = money released</h3>
             <p className="step-description">Payment is only released when the job is completed exactly as quoted. No surprises, no games.</p>
           </div>
