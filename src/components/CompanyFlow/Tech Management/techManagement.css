@@ -13,10 +13,11 @@
 /* Main Content */
 .tech-main-content {
   flex: 1;
-  padding: 3rem;
+  padding: 3rem 10%;
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
+  box-sizing: border-box;
 }
 
 /* Dashboard Header */
@@ -43,7 +44,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 .tech-summary-card {
@@ -371,7 +372,7 @@
 
 @media (max-width: 768px) {
   .tech-main-content {
-    padding: 1.5rem;
+    padding: 1.5rem 10%;
   }
 
   .tech-dashboard-title {
