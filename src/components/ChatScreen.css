@@ -96,6 +96,43 @@
   border-top: 1px solid #D1D5DB;
 }
 
+.mic-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.big-mic-button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #0D90B2;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(13, 144, 178, 0.3);
+}
+
+.big-mic-button img {
+  filter: brightness(0) invert(1);
+  width: 32px;
+  height: 32px;
+}
+
+.big-mic-button:hover {
+  background: #0A7A99;
+  box-shadow: 0 6px 16px rgba(13, 144, 178, 0.4);
+  transform: scale(1.05);
+}
+
+.big-mic-button:active {
+  transform: scale(0.95);
+}
+
 .message-form {
   width: 100%;
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import chatIcon from '../assets/icons/home icons/chat.png';
+import phoneIcon from '../assets/icons/phone.png';
 import './ChatScreen.css';
 
 const ChatScreen = () => {
@@ -47,6 +48,16 @@ const ChatScreen = () => {
 
         {/* Chat Input */}
         <div className="chat-input-area">
+          {/* Big Circle Phone Button */}
+          <div className="mic-button-container">
+            <button 
+              type="button" 
+              className="big-mic-button" 
+              onClick={handleVoiceInput}
+            >
+              <img src={phoneIcon} alt="Phone" width="32" height="32" />
+            </button>
+          </div>
           <form onSubmit={handleSubmit} className="message-form">
             <div className="input-and-buttons">
               <div className="message-input-container">

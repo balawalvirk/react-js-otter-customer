@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from './Header';
 import PlumbingServicesModal from './home/PlumbingServicesModal';
 import AvailableServiceProvidersModal from './home/AvailableServiceProvidersModal';
@@ -15,6 +16,7 @@ import container from '../assets/icons/home icons/Container.png';
 import chatIcon from '../assets/icons/home icons/chat.png';
 
 const HomeScreen = () => {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [chatMessage, setChatMessage] = useState('');
   const [showServiceModal, setShowServiceModal] = useState(false);
@@ -105,7 +107,12 @@ const HomeScreen = () => {
       <div className="main-content">
         {/* Talk to Otter Section */}
         <div className="talk-to-otter-section">
-          <h1 className="section-title">Talk to Otter</h1>
+          <button 
+            className="talk-to-otter-button"
+            onClick={() => navigate('/chat')}
+          >
+            Talk to Otter
+          </button>
           <p className="section-subtitle">Tel me what you need help with</p>
           
           <form onSubmit={handleChatSubmit} className="chat-form">
