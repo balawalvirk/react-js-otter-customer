@@ -11,7 +11,7 @@ const CompanyHome = () => {
   const [activeTab, setActiveTab] = useState('home');
 
   const handleLogout = () => {
-    navigate('/welcome');
+    navigate('/company-logout');
   };
 
   const navigationItems = [
@@ -33,7 +33,7 @@ const CompanyHome = () => {
     {
       key: 'payments',
       label: 'Payments',
-      onPress: () => setActiveTab('payments')
+      onPress: () => navigate('/payments')
     },
     {
       key: 'logout',

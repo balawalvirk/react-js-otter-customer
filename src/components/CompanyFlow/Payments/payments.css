@@ -1,0 +1,288 @@
+/* Payments Container */
+.payments-container {
+  min-height: 100vh;
+  background-image: url('../../../assets/images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Main Content */
+.payments-main-content {
+  flex: 1;
+  padding: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.dashboard-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+}
+
+.dashboard-subtitle {
+  font-size: 1.125rem;
+  color: #000000;
+  margin: 0;
+}
+
+/* Sections */
+.bank-account-section,
+.transactions-section {
+  background: white;
+  border-radius: 2px;
+  border: 1px solid #D1D5DB;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.section-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+}
+
+.section-subtitle {
+  font-size: 0.875rem;
+  color: #6B7280;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Bank Account Card */
+.bank-account-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #F9FAFB;
+  border-radius: 2px;
+  border: 1px solid #E5E7EB;
+}
+
+.bank-icon {
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bank-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.bank-info {
+  flex: 1;
+}
+
+.bank-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.25rem 0;
+}
+
+.bank-account-number {
+  font-size: 0.875rem;
+  color: #374151;
+  margin: 0;
+}
+
+.connected-badge {
+  background: #F1FFF0;
+  color: #1E7318;
+  border: 1px solid #1E7318;
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Transactions Filters */
+.transactions-filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-bar {
+  flex: 0 0 40%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 2px;
+  background: #F5F5F5;
+  padding: 0.25rem 1rem;
+  height: 28px;
+}
+
+.search-bar svg {
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.875rem;
+  color: #111827;
+  background: transparent;
+  height: 100%;
+}
+
+.search-input::placeholder {
+  color: #9CA3AF;
+}
+
+.filter-dropdowns {
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.filter-select {
+  appearance: none;
+  border: none;
+  border-radius: 2px;
+  padding: 0.25rem 2rem 0.25rem 1rem;
+  font-size: 0.875rem;
+  color: #374151;
+  background: #F5F5F5;
+  cursor: pointer;
+  outline: none;
+  min-width: 120px;
+  height: 28px;
+}
+
+.select-wrapper svg {
+  position: absolute;
+  right: 0.75rem;
+  pointer-events: none;
+}
+
+/* Transactions Table */
+.transactions-table-container {
+  overflow-x: auto;
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transactions-table thead {
+  background: #F9FAFB;
+}
+
+.transactions-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.transactions-table td {
+  padding: 1rem;
+  font-size: 0.875rem;
+  color: #111827;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.transactions-table tbody tr:hover {
+  background: #F9FAFB;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.action-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.action-btn:hover {
+  background: #F3F4F6;
+  border-radius: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .payments-main-content {
+    padding: 1.5rem;
+  }
+
+  .dashboard-title {
+    font-size: 2rem;
+  }
+
+  .transactions-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-dropdowns {
+    width: 100%;
+  }
+
+  .filter-select {
+    width: 100%;
+  }
+
+  .transactions-table-container {
+    overflow-x: scroll;
+  }
+
+  .transactions-table {
+    min-width: 800px;
+  }
+}
+

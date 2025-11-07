@@ -12,7 +12,7 @@ const TechManagement = () => {
   const [activeTab, setActiveTab] = useState('tech-management');
 
   const handleLogout = () => {
-    navigate('/welcome');
+    navigate('/company-logout');
   };
 
   const navigationItems = [
@@ -34,7 +34,7 @@ const TechManagement = () => {
     {
       key: 'payments',
       label: 'Payments',
-      onPress: () => setActiveTab('payments')
+      onPress: () => navigate('/payments')
     },
     {
       key: 'logout',
