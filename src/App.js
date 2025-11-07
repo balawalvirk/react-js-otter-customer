@@ -14,6 +14,9 @@ import JobReviewsScreen from './components/JobReviewsScreen';
 import ProfileScreen from './components/ProfileScreen';
 import HistoryScreen from './components/HistoryScreen';
 import LogoutScreen from './components/LogoutScreen';
+import CompanyHome from './components/CompanyFlow/CompanyHome/companyHome';
+import TechManagement from './components/CompanyFlow/Tech Management/techManagement';
+import ContractsEstimates from './components/CompanyFlow/Contracts & Estimates/contractsEstimates';
 import './App.css';
 
 function App() {
@@ -35,6 +38,9 @@ function App() {
           <Route path="/profile" element={<ProfileScreen />} />
           <Route path="/history" element={<HistoryScreen />} />
           <Route path="/logout" element={<LogoutScreen />} />
+          <Route path="/company-home" element={<CompanyHome />} />
+          <Route path="/tech-management" element={<TechManagement />} />
+          <Route path="/contracts-estimates" element={<ContractsEstimates />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>

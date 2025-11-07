@@ -12,7 +12,11 @@ const SignUpScreen = () => {
   };
 
   const handleContinue = () => {
-    navigate('/create-account');
+    if (selectedRole === 'company') {
+      navigate('/company-home');
+    } else {
+      navigate('/create-account');
+    }
   };
 
   const handleBack = () => {

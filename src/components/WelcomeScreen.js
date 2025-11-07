@@ -14,7 +14,13 @@ const WelcomeScreen = () => {
     e.preventDefault();
     // Handle form submission
     console.log('Form submitted:', { email, password });
-    navigate('/home');
+    
+    // Check if it's a company login
+    if (email === 'company@gmail.com' && password === '123456') {
+      navigate('/company-home');
+    } else {
+      navigate('/home');
+    }
   };
 
   const handleSignUpClick = () => {
