@@ -22,6 +22,8 @@ import CompanyLogoutScreen from './components/CompanyFlow/LogoutScreen/companyLo
 import JobAssigned from './components/ServiceFlow/JobAssigned/jobAssigned';
 import NavigationScreen from './components/ServiceFlow/Navigation/navigation';
 import ArrivedScreen from './components/ServiceFlow/Arrived/arrived';
+import DiagnosticsScreen from './components/ServiceFlow/Diagnostics/diagnostics';
+import EstimatesScreen from './components/ServiceFlow/Estimates/estimates';
 import './App.css';
 
 function App() {
@@ -51,6 +53,8 @@ function App() {
           <Route path="/service-job-assigned" element={<JobAssigned />} />
           <Route path="/service-navigation" element={<NavigationScreen />} />
           <Route path="/service-arrived" element={<ArrivedScreen />} />
+          <Route path="/service-diagnostics" element={<DiagnosticsScreen />} />
+          <Route path="/service-estimates" element={<EstimatesScreen />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
