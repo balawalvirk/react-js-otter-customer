@@ -19,6 +19,9 @@ import TechManagement from './components/CompanyFlow/Tech Management/techManagem
 import ContractsEstimates from './components/CompanyFlow/Contracts & Estimates/contractsEstimates';
 import Payments from './components/CompanyFlow/Payments/payments';
 import CompanyLogoutScreen from './components/CompanyFlow/LogoutScreen/companyLogoutScreen';
+import JobAssigned from './components/ServiceFlow/JobAssigned/jobAssigned';
+import NavigationScreen from './components/ServiceFlow/Navigation/navigation';
+import ArrivedScreen from './components/ServiceFlow/Arrived/arrived';
 import './App.css';
 
 function App() {
@@ -45,6 +48,9 @@ function App() {
           <Route path="/contracts-estimates" element={<ContractsEstimates />} />
           <Route path="/payments" element={<Payments />} />
           <Route path="/company-logout" element={<CompanyLogoutScreen />} />
+          <Route path="/service-job-assigned" element={<JobAssigned />} />
+          <Route path="/service-navigation" element={<NavigationScreen />} />
+          <Route path="/service-arrived" element={<ArrivedScreen />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>

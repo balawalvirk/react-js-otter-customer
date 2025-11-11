@@ -18,6 +18,8 @@ const WelcomeScreen = () => {
     // Check if it's a company login
     if (email === 'company@gmail.com' && password === '123456') {
       navigate('/company-home');
+    } else if (email === 'service@gmail.com' && password === '123456') {
+      navigate('/service-job-assigned');
     } else {
       navigate('/home');
     }

@@ -1,0 +1,31 @@
+.arrived-screen .service-flow-alert {
+  margin-bottom: 1.75rem;
+}
+
+.arrived-screen .start-diagnostics-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  background: #0D90B2;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin-top: 1.5rem;
+}
+
+.arrived-screen .start-diagnostics-btn:hover {
+  background: #0A7A99;
+}
+
+@media (max-width: 768px) {
+  .arrived-screen .start-diagnostics-btn {
+    font-size: 0.9rem;
+    padding: 0.8rem 0.9rem;
+  }
+}
