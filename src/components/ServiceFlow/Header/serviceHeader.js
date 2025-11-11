@@ -1,13 +1,21 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './serviceHeader.css';
 
 const ServiceHeader = ({ activeTab, navigationItems = [] }) => {
-  const navigate = useNavigate();
   const navTabsRef = useRef(null);
   const topNavRef = useRef(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const checkScrollButtons = () => {
     const navTabs = navTabsRef.current;
@@ -46,25 +54,46 @@ const ServiceHeader = ({ activeTab, navigationItems = [] }) => {
     const scrollableElement = topNav || navTabs;
 
     if (scrollableElement) {
-      const savedScroll = sessionStorage.getItem('serviceHeaderScrollPosition');
-      if (savedScroll !== null) {
-        const restoreScroll = () => {
-          scrollableElement.scrollLeft = parseFloat(savedScroll);
-          sessionStorage.removeItem('serviceHeaderScrollPosition');
-        };
+      if (isMobile) {
+        scrollableElement.scrollLeft = sessionStorage.getItem('serviceHeaderScrollPosition')
+          ? parseFloat(sessionStorage.getItem('serviceHeaderScrollPosition'))
+          : scrollableElement.scrollLeft;
+      } else {
+        const savedScroll = sessionStorage.getItem('serviceHeaderScrollPosition');
+        if (savedScroll !== null) {
+          const restoreScroll = () => {
+            scrollableElement.scrollLeft = parseFloat(savedScroll);
+            sessionStorage.removeItem('serviceHeaderScrollPosition');
+          };
 
-        requestAnimationFrame(restoreScroll);
-        setTimeout(restoreScroll, 10);
-        setTimeout(restoreScroll, 50);
+          requestAnimationFrame(restoreScroll);
+          setTimeout(restoreScroll, 10);
+          setTimeout(restoreScroll, 50);
+        }
       }
     }
-  }, [activeTab]);
+  }, [activeTab, isMobile]);
 
   const handleNavClick = (item, event) => {
     event.preventDefault();
     event.stopPropagation();
 
     if (item.key === activeTab) {
+      return;
+    }
+
+    if (typeof item.onPress === 'function') {
+      item.onPress();
+    }
+
+    if (isMobile) {
+      const navTabs = navTabsRef.current;
+      const topNav = topNavRef.current;
+      const scrollableElement = topNav || navTabs;
+      if (scrollableElement) {
+        const currentScroll = scrollableElement.scrollLeft;
+        sessionStorage.setItem('serviceHeaderScrollPosition', currentScroll.toString());
+      }
       return;
     }
 
@@ -77,22 +106,12 @@ const ServiceHeader = ({ activeTab, navigationItems = [] }) => {
       sessionStorage.setItem('serviceHeaderScrollPosition', savedScrollLeft.toString());
       scrollableElement.style.overflowX = 'hidden';
 
-      if (typeof item.onPress === 'function') {
-        item.onPress();
-      } else if (item.route) {
-        navigate(item.route);
-      }
-
       setTimeout(() => {
         if (scrollableElement) {
           scrollableElement.style.overflowX = 'auto';
           scrollableElement.scrollLeft = savedScrollLeft;
         }
       }, 10);
-    } else if (typeof item.onPress === 'function') {
-      item.onPress();
-    } else if (item.route) {
-      navigate(item.route);
     }
   };
 
@@ -134,7 +153,11 @@ const ServiceHeader = ({ activeTab, navigationItems = [] }) => {
       </button>
 
       <div className="service-top-nav" ref={topNavRef}>
-        <div className="service-nav-tabs" ref={navTabsRef}>
+        <div
+          className="service-nav-tabs"
+          style={{ paddingLeft: isMobile ? 400 : 0 }}
+          ref={navTabsRef}
+        >
           {navigationItems.map((item) => (
             <button
               key={item.key}

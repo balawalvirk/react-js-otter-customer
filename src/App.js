@@ -24,6 +24,9 @@ import NavigationScreen from './components/ServiceFlow/Navigation/navigation';
 import ArrivedScreen from './components/ServiceFlow/Arrived/arrived';
 import DiagnosticsScreen from './components/ServiceFlow/Diagnostics/diagnostics';
 import EstimatesScreen from './components/ServiceFlow/Estimates/estimates';
+import ApprovalScreen from './components/ServiceFlow/Approval/approval';
+import CompleteScreen from './components/ServiceFlow/Complete/complete';
+import ServiceLogoutScreen from './components/ServiceFlow/Logout/logout';
 import './App.css';
 
 function App() {
@@ -55,6 +58,9 @@ function App() {
           <Route path="/service-arrived" element={<ArrivedScreen />} />
           <Route path="/service-diagnostics" element={<DiagnosticsScreen />} />
           <Route path="/service-estimates" element={<EstimatesScreen />} />
+          <Route path="/service-approval" element={<ApprovalScreen />} />
+          <Route path="/service-complete" element={<CompleteScreen />} />
+          <Route path="/service-logout" element={<ServiceLogoutScreen />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>

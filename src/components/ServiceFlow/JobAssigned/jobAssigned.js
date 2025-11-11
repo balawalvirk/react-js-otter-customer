@@ -16,7 +16,7 @@ const JobAssigned = () => {
     { key: 'estimates', label: 'Estimates', onPress: () => navigate('/service-estimates') },
     { key: 'approval', label: 'Approval', onPress: () => navigate('/service-approval') },
     { key: 'complete', label: 'Complete', onPress: () => navigate('/service-complete') },
-    { key: 'logout', label: 'Logout', onPress: () => navigate('/logout') }
+    { key: 'logout', label: 'Logout', onPress: () => navigate('/service-logout') }
   ];
 
   return (

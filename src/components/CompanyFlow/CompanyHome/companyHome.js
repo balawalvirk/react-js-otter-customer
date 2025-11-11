@@ -232,7 +232,7 @@ const CompanyHome = () => {
                     <h3 className="job-type">{job.type}</h3>
                     <span 
                       className="priority-badge" 
-                      style={{ backgroundColor: job.priorityBgColor }}
+                      style={{ backgroundColor: job.priorityBgColor,color:'white' }}
                     >
                       {job.priority}
                     </span>

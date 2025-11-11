@@ -17,7 +17,7 @@ const DiagnosticsScreen = () => {
     { key: 'estimates', label: 'Estimates', onPress: () => navigate('/service-estimates') },
     { key: 'approval', label: 'Approval', onPress: () => navigate('/service-approval') },
     { key: 'complete', label: 'Complete', onPress: () => navigate('/service-complete') },
-    { key: 'logout', label: 'Logout', onPress: () => navigate('/logout') }
+    { key: 'logout', label: 'Logout', onPress: () => navigate('/service-logout') }
   ];
 
   const checklistItems = [
@@ -56,10 +56,12 @@ const DiagnosticsScreen = () => {
               </span>
               <div>
                 <h2>Before Photos</h2>
-                <p>Capture photos of the issues before start work</p>
               </div>
             </div>
           </header>
+              <div style={{marginTop:-20}}>
+                <p>Capture photos of the issues before start work</p>
+               </div>
 
           <div className="photo-actions">
             <button type="button" className="photo-btn">
@@ -120,7 +122,7 @@ const DiagnosticsScreen = () => {
                   />
                 </svg>
               </span>
-              <h2>Diagnostics Checklist</h2>
+              <h2 style={{marginTop:-1}}>Diagnostics Checklist</h2>
             </div>
           </header>
 

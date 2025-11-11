@@ -6,6 +6,16 @@ const CompanyHeader = ({ activeTab, navigationItems = [] }) => {
   const topNavRef = useRef(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const checkScrollButtons = () => {
     const navTabs = navTabsRef.current;
@@ -41,32 +51,38 @@ const CompanyHeader = ({ activeTab, navigationItems = [] }) => {
   const handleNavClick = (item, e) => {
     e.preventDefault();
     e.stopPropagation();
-    
+
+    if (item.key === activeTab) {
+      return;
+    }
+
+    if (item.onPress) {
+      item.onPress();
+    }
+
     const navTabs = navTabsRef.current;
     const topNav = topNavRef.current;
     const scrollableElement = topNav || navTabs;
-    
-    if (scrollableElement) {
-      const savedScrollLeft = scrollableElement.scrollLeft;
-      sessionStorage.setItem('companyHeaderScrollPosition', savedScrollLeft.toString());
-      
-      scrollableElement.style.overflowX = 'hidden';
-      
-      if (item.onPress) {
-        item.onPress();
-      }
-      
-      setTimeout(() => {
-        if (scrollableElement) {
-          scrollableElement.style.overflowX = 'auto';
-          scrollableElement.scrollLeft = savedScrollLeft;
-        }
-      }, 10);
-    } else {
-      if (item.onPress) {
-        item.onPress();
-      }
+
+    if (!scrollableElement) return;
+
+    if (isMobile) {
+      const currentScroll = scrollableElement.scrollLeft;
+      sessionStorage.setItem('companyHeaderScrollPosition', currentScroll.toString());
+      return;
     }
+
+    const savedScrollLeft = scrollableElement.scrollLeft;
+    sessionStorage.setItem('companyHeaderScrollPosition', savedScrollLeft.toString());
+    
+    scrollableElement.style.overflowX = 'hidden';
+    
+    setTimeout(() => {
+      if (scrollableElement) {
+        scrollableElement.style.overflowX = 'auto';
+        scrollableElement.scrollLeft = savedScrollLeft;
+      }
+    }, 10);
   };
 
   useEffect(() => {
@@ -75,19 +91,26 @@ const CompanyHeader = ({ activeTab, navigationItems = [] }) => {
     const scrollableElement = topNav || navTabs;
     
     if (scrollableElement) {
-      const savedScroll = sessionStorage.getItem('companyHeaderScrollPosition');
-      if (savedScroll !== null) {
-        const restoreScroll = () => {
+      if (isMobile) {
+        const savedScroll = sessionStorage.getItem('companyHeaderScrollPosition');
+        if (savedScroll !== null) {
           scrollableElement.scrollLeft = parseFloat(savedScroll);
-          sessionStorage.removeItem('companyHeaderScrollPosition');
-        };
-        
-        requestAnimationFrame(restoreScroll);
-        setTimeout(restoreScroll, 10);
-        setTimeout(restoreScroll, 50);
+        }
+      } else {
+        const savedScroll = sessionStorage.getItem('companyHeaderScrollPosition');
+        if (savedScroll !== null) {
+          const restoreScroll = () => {
+            scrollableElement.scrollLeft = parseFloat(savedScroll);
+            sessionStorage.removeItem('companyHeaderScrollPosition');
+          };
+          
+          requestAnimationFrame(restoreScroll);
+          setTimeout(restoreScroll, 10);
+          setTimeout(restoreScroll, 50);
+        }
       }
     }
-  }, [activeTab]);
+  }, [activeTab, isMobile]);
 
   const scrollLeft = (e) => {
     e.preventDefault();
@@ -146,7 +169,11 @@ const CompanyHeader = ({ activeTab, navigationItems = [] }) => {
         </svg>
       </button>
       <div className="company-top-nav" ref={topNavRef}>
-        <div className="company-nav-tabs" ref={navTabsRef}>
+        <div
+          className="company-nav-tabs"
+          style={{ paddingLeft: isMobile ? 220 : 0 }}
+          ref={navTabsRef}
+        >
           {navigationItems.map((item, index) => (
             <button 
               key={index}
