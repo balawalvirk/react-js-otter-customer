@@ -25,7 +25,7 @@
 }
 
 .dashboard-title {
-  font-size: 2.5rem;
+  font-size: 2.625rem;
   font-weight: 700;
   color: #111827;
   margin: 0;
@@ -48,12 +48,14 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  align-items: flex-start;
 }
 
 .kpi-info {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.5rem;
+  justify-content: flex-start;
 }
 
 .kpi-icon {
@@ -66,21 +68,28 @@
   flex-shrink: 0;
 }
 
+.kpi-icon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+}
+
 .kpi-title {
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: #111827;
   margin: 0;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .kpi-value {
-  font-size: 1.75rem;
+  font-size: 1.875rem;
   font-weight: 700;
   margin: 0;
 }
 
 .kpi-change {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: #6B7280;
   margin: 0;
   font-weight: 400;
@@ -103,7 +112,7 @@
 }
 
 .section-heading {
-  font-size: 1.5rem;
+  font-size: 1.625rem;
   font-weight: 700;
   color: #111827;
   margin: 0 0 1.5rem 0;
@@ -115,7 +124,7 @@
 }
 
 .disputes-table table {
-  width: 100%;
+  width: 114%;
   border-collapse: collapse;
 }
 
@@ -126,17 +135,23 @@
 .disputes-table th {
   padding: 0.75rem 1rem;
   text-align: left;
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 1.75rem !important;
+  font-weight: 900 !important;
   color: #374151;
   border-bottom: 1px solid #E5E7EB;
 }
 
+.disputes-table thead th {
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+}
+
 .disputes-table td {
   padding: 1rem;
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: #111827;
   border-bottom: 1px solid #E5E7EB;
+  
 }
 
 .disputes-table tbody tr:last-child td {
@@ -147,7 +162,7 @@
   display: inline-block;
   padding: 0.25rem 0.75rem;
   border-radius: 3px;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: white;
 }
@@ -167,6 +182,11 @@
   align-items: center;
   justify-content: center;
   transition: opacity 0.2s;
+}
+
+.action-icon-btn img {
+  display: block;
+  object-fit: contain;
 }
 
 .action-icon-btn:hover {
@@ -190,19 +210,22 @@
 }
 
 .view-all-btn {
-  background: #0D90B2;
-  color: white;
-  border: none;
+  background: white;
+  color: #111827;
+  border: 1px solid #D1D5DB;
   border-radius: 3px;
-  padding: 0.5rem 1rem;
+  padding: 0.375rem 0.55rem;
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s;
+  white-space: nowrap;
+  width: 10%;
 }
 
 .view-all-btn:hover {
-  background: #0A7A99;
+  background: #F9FAFB;
+  border-color: #9CA3AF;
 }
 
 .companies-list {
@@ -226,11 +249,18 @@
   flex: 1;
 }
 
+.company-header-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
 .company-name {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #111827;
-  margin: 0 0 0.75rem 0;
+  margin: 0;
 }
 
 .company-details {
@@ -242,8 +272,15 @@
 
 .rating-text,
 .complaints-text {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: #6B7280;
+  display: flex;
+  align-items: center;
+}
+
+.rating-text img {
+  display: block;
+  object-fit: contain;
 }
 
 .company-actions {
@@ -256,13 +293,15 @@
   background: white;
   border: 1px solid #D1D5DB;
   border-radius: 3px;
-  width: 32px;
-  height: 32px;
+  padding: 0.5rem 1rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.5rem;
   cursor: pointer;
   transition: all 0.2s;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
 }
 
 .approve-btn:hover {
@@ -270,21 +309,65 @@
   border-color: #10B981;
 }
 
-.suspend-btn {
-  background: white;
-  border: 1px solid #EF4444;
-  border-radius: 3px;
-  width: 32px;
-  height: 32px;
+.approve-btn .icon-box {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+}
+
+.approve-btn .icon-box img {
+  display: block;
+  object-fit: contain;
+  width: 14px;
+  height: 14px;
+}
+
+.suspend-btn {
+  background: #FFECEC;
+  border: 1px solid #FF1616;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   cursor: pointer;
   transition: all 0.2s;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #FF1616;
 }
 
 .suspend-btn:hover {
-  background: #FEE2E2;
+  background: #FFD6D6;
+  border-color: #FF1616;
+}
+
+.suspend-btn .icon-box {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.suspend-btn .icon-box img {
+  display: block;
+  object-fit: contain;
+  width: 14px;
+  height: 14px;
+  filter: brightness(0) saturate(100%) invert(13%) sepia(94%) saturate(7151%) hue-rotate(351deg) brightness(101%) contrast(101%);
+}
+
+.suspend-btn .btn-text {
+  white-space: nowrap;
 }
 
 @media (max-width: 1200px) {
@@ -299,7 +382,7 @@
   }
 
   .dashboard-title {
-    font-size: 2rem;
+    font-size: 2.125rem;
   }
 
   .kpi-grid {

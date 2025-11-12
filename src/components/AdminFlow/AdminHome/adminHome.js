@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AdminHeader from '../adminHeader';
+import companiesIcon from '../../../assets/icons/companies.png';
+import starIcon from '../../../assets/icons/star.png';
+import disputesIcon from '../../../assets/icons/disputes.png';
+import revenueIcon from '../../../assets/icons/revenue.png';
+import flagIcon from '../../../assets/icons/Flag.png';
+import editIcon from '../../../assets/icons/edit.png';
+import eyeIcon from '../../../assets/icons/eye.png';
+import downloadIcon from '../../../assets/icons/download.png';
+import threeDotsIcon from '../../../assets/icons/3dots.png';
+import tickIcon from '../../../assets/icons/tick.png';
+import crossIcon from '../../../assets/icons/cross.png';
 import './adminHome.css';
 
 const AdminHome = () => {
@@ -51,13 +62,9 @@ const AdminHome = () => {
       title: 'Total Companies',
       value: '$24,580',
       change: '12% from last month',
-      changeColor: '#10B981',
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      ),
-      iconBg: '#D1FAE5'
+      changeColor: '#1E7318',
+      icon: <img src={companiesIcon} alt="Companies" width="24" height="24" />,
+      iconBg: 'transparent'
     },
     {
       id: 2,
@@ -65,16 +72,8 @@ const AdminHome = () => {
       value: '142',
       change: '8% from last month',
       changeColor: '#0D90B2',
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#0D90B2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M14 2V8H20" stroke="#0D90B2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M16 13H8" stroke="#0D90B2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M16 17H8" stroke="#0D90B2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M10 9H9H8" stroke="#0D90B2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      ),
-      iconBg: '#DBEAFE'
+      icon: <img src={disputesIcon} alt="Disputes" width="24" height="24" />,
+      iconBg: 'transparent'
     },
     {
       id: 3,
@@ -82,12 +81,8 @@ const AdminHome = () => {
       value: '4.8',
       change: '15% from last month',
       changeColor: '#F59E0B',
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M12 2V22M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6313 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6313 13.6815 18 14.5717 18 15.5C18 16.4283 17.6313 17.3185 16.9749 17.9749C16.3185 18.6313 15.4283 19 14.5 19H6" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      ),
-      iconBg: '#FEF3C7'
+      icon: <img src={revenueIcon} alt="Revenue" width="24" height="24" />,
+      iconBg: 'transparent'
     },
     {
       id: 4,
@@ -95,12 +90,8 @@ const AdminHome = () => {
       value: '7',
       change: '3% from last month',
       changeColor: '#EF4444',
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#EF4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      ),
-      iconBg: '#FEE2E2'
+      icon: <img src={flagIcon} alt="Flagged" width="24" height="24" />,
+      iconBg: 'transparent'
     }
   ];
 
@@ -110,35 +101,35 @@ const AdminHome = () => {
       client: 'Jaun Perez',
       amount: '$450',
       status: 'Open',
-      statusColor: '#10B981'
+      statusColor: '#8CCA19'
     },
     {
       id: 'DSP - 002',
       client: 'Jaun Perez',
       amount: '$450',
       status: 'Pending',
-      statusColor: '#F59E0B'
+      statusColor: '#F9CF47'
     },
     {
       id: 'DSP - 003',
       client: 'Carlos Ruiz',
       amount: '$450',
       status: 'Open',
-      statusColor: '#10B981'
+      statusColor: '#8CCA19'
     },
     {
       id: 'DSP - 004',
       client: 'Sofia Lopez',
       amount: '$450',
       status: 'Open',
-      statusColor: '#10B981'
+      statusColor: '#8CCA19'
     },
     {
       id: 'DSP - 005',
       client: 'Sofia Lopez',
       amount: '$450',
       status: 'Open',
-      statusColor: '#10B981'
+      statusColor: '#8CCA19'
     }
   ];
 
@@ -153,7 +144,7 @@ const AdminHome = () => {
     {
       name: 'Fast Service LLC',
       status: 'Pending',
-      statusColor: '#F59E0B',
+      statusColor: '#F9CF47',
       rating: '2.8',
       complaints: '8 Complaints'
     },
@@ -196,7 +187,7 @@ const AdminHome = () => {
           <div className="recent-disputes-section">
             <h2 className="section-heading">Recent Disputes</h2>
             <div className="disputes-table">
-              <table>
+              <table >
                 <thead>
                   <tr>
                     <th>ID</th>
@@ -220,30 +211,16 @@ const AdminHome = () => {
                       <td>
                         <div className="action-icons">
                           <button className="action-icon-btn">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                              <path d="M8 3C5.23858 3 3 5.23858 3 8C3 10.7614 5.23858 13 8 13C10.7614 13 13 10.7614 13 8C13 5.23858 10.7614 3 8 3Z" stroke="#6B7280" strokeWidth="1.5"/>
-                              <path d="M8 10.6667C9.47276 10.6667 10.6667 9.47276 10.6667 8C10.6667 6.52724 9.47276 5.33333 8 5.33333C6.52724 5.33333 5.33333 6.52724 5.33333 8C5.33333 9.47276 6.52724 10.6667 8 10.6667Z" stroke="#6B7280" strokeWidth="1.5"/>
-                              <path d="M2.66667 2.66667L3.33333 3.33333" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round"/>
-                              <path d="M12.6667 12.6667L13.3333 13.3333" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round"/>
-                            </svg>
+                            <img src={editIcon} alt="Edit" width="14" height="14" />
                           </button>
                           <button className="action-icon-btn">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                              <path d="M11.3333 2.00001C11.5084 1.82491 11.7163 1.68605 11.9447 1.59128C12.1731 1.49651 12.4173 1.44775 12.6667 1.44775C12.916 1.44775 13.1602 1.49651 13.3886 1.59128C13.617 1.68605 13.8249 1.82491 14 2.00001C14.1751 2.17511 14.314 2.38301 14.4087 2.61141C14.5035 2.83981 14.5523 3.08401 14.5523 3.33334C14.5523 3.58268 14.5035 3.82688 14.4087 4.05528C14.314 4.28368 14.1751 4.49158 14 4.66668L5.00001 13.6667L1.33334 14.6667L2.33334 11L11.3333 2.00001Z" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
+                            <img src={eyeIcon} alt="View" width="14" height="14" />
                           </button>
                           <button className="action-icon-btn">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                              <path d="M2 4H3.33333H14" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                              <path d="M5.33333 4V2.66667C5.33333 2.31305 5.47381 1.97391 5.72386 1.72386C5.97391 1.47381 6.31305 1.33333 6.66667 1.33333H9.33333C9.68696 1.33333 10.0261 1.47381 10.2761 1.72386C10.5262 1.97391 10.6667 2.31305 10.6667 2.66667V4M12.6667 4V13.3333C12.6667 13.687 12.5262 14.0261 12.2761 14.2761C12.0261 14.5262 11.687 14.6667 11.3333 14.6667H4.66667C4.31305 14.6667 3.97391 14.5262 3.72386 14.2761C3.47381 14.0261 3.33333 13.687 3.33333 13.3333V4H12.6667Z" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                              <path d="M6.66667 7.33333V11.3333" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                              <path d="M9.33333 7.33333V11.3333" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
+                            <img src={downloadIcon} alt="Download" width="14" height="14" />
                           </button>
                           <button className="action-icon-btn">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                              <path d="M4 8H12" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
+                            <img src={threeDotsIcon} alt="More" width="14" height="14" />
                           </button>
                         </div>
                       </td>
@@ -263,25 +240,38 @@ const AdminHome = () => {
               {companiesNeedingAttention.map((company, index) => (
                 <div key={index} className="company-card">
                   <div className="company-info">
-                    <h3 className="company-name">{company.name}</h3>
-                    <div className="company-details">
-                      <span className="status-badge" style={{ backgroundColor: company.statusColor }}>
+                    <div className="company-header-row">
+                      <h3 className="company-name">{company.name}</h3>
+                      <span 
+                        className="status-badge" 
+                        style={{ 
+                          backgroundColor: company.statusColor,
+                          color: company.status === 'Pending' ? '#111827' : 'white'
+                        }}
+                      >
                         {company.status}
                       </span>
-                      <span className="rating-text">{company.rating} stars</span>
+                    </div>
+                    <div className="company-details">
+                      <span className="rating-text">
+                        <img src={starIcon} alt="Star" width="14" height="14" style={{ marginRight: '4px', verticalAlign: 'middle' }} />
+                        {company.rating}
+                      </span>
                       <span className="complaints-text">{company.complaints}</span>
                     </div>
                   </div>
                   <div className="company-actions">
                     <button className="approve-btn">
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M13.3333 4L6 11.3333L2.66667 8" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
+                      <span className="icon-box">
+                        <img src={tickIcon} alt="Approve" width="14" height="14" />
+                      </span>
+                      <span className="btn-text">Approve</span>
                     </button>
                     <button className="suspend-btn">
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M12 4L4 12M4 4L12 12" stroke="#EF4444" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
+                      <span className="icon-box">
+                        <img src={crossIcon} alt="Suspend" width="14" height="14" />
+                      </span>
+                      <span className="btn-text">Suspend</span>
                     </button>
                   </div>
                 </div>
