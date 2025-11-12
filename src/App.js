@@ -27,6 +27,13 @@ import EstimatesScreen from './components/ServiceFlow/Estimates/estimates';
 import ApprovalScreen from './components/ServiceFlow/Approval/approval';
 import CompleteScreen from './components/ServiceFlow/Complete/complete';
 import ServiceLogoutScreen from './components/ServiceFlow/Logout/logout';
+import AdminHome from './components/AdminFlow/AdminHome/adminHome';
+import Companies from './components/AdminFlow/Companies/companies';
+import Disputes from './components/AdminFlow/Disputes/disputes';
+import AdminPayments from './components/AdminFlow/Payments/payments';
+import OtterAI from './components/AdminFlow/OtterAI/otterAI';
+import Ratings from './components/AdminFlow/Ratings/ratings';
+import AdminLogout from './components/AdminFlow/Logout/logout';
 import './App.css';
 
 function App() {
@@ -61,6 +68,13 @@ function App() {
           <Route path="/service-approval" element={<ApprovalScreen />} />
           <Route path="/service-complete" element={<CompleteScreen />} />
           <Route path="/service-logout" element={<ServiceLogoutScreen />} />
+          <Route path="/admin-home" element={<AdminHome />} />
+          <Route path="/admin-companies" element={<Companies />} />
+          <Route path="/admin-disputes" element={<Disputes />} />
+          <Route path="/admin-payments" element={<AdminPayments />} />
+          <Route path="/admin-otter-ai" element={<OtterAI />} />
+          <Route path="/admin-ratings" element={<Ratings />} />
+          <Route path="/admin-logout" element={<AdminLogout />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>

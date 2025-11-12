@@ -1,0 +1,228 @@
+.admin-companies-container {
+  min-height: 100vh;
+  background-image: url('../../../assets/images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.admin-main-content {
+  flex: 1;
+  padding: 3rem 10%;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+}
+
+.page-subtitle {
+  font-size: 1.125rem;
+  color: #6B7280;
+  margin: 0;
+}
+
+.companies-content-card {
+  background: white;
+  border-radius: 3px;
+  border: 1px solid #D1D5DB;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.search-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #D1D5DB;
+  border-radius: 3px;
+  font-size: 0.875rem;
+  color: #111827;
+}
+
+.search-input::placeholder {
+  color: #9CA3AF;
+}
+
+.search-btn {
+  background: #0D90B2;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.search-btn:hover {
+  background: #0A7A99;
+}
+
+.filter-btn {
+  background: white;
+  border: 1px solid #D1D5DB;
+  border-radius: 3px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: #374151;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  background: #F9FAFB;
+}
+
+.filter-options {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-option-btn {
+  background: white;
+  border: 1px solid #D1D5DB;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: #374151;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.filter-option-btn:hover {
+  background: #F9FAFB;
+}
+
+.filter-select {
+  background: white;
+  border: 1px solid #D1D5DB;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  color: #374151;
+  cursor: pointer;
+}
+
+.companies-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.companies-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.companies-table thead {
+  background: #F9FAFB;
+}
+
+.companies-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.companies-table td {
+  padding: 1rem;
+  font-size: 0.875rem;
+  color: #111827;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.companies-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+.action-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.action-icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.action-icon-btn:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .admin-main-content {
+    padding: 1.5rem 5%;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .search-filter-bar {
+    flex-direction: column;
+  }
+
+  .search-container {
+    width: 100%;
+  }
+}
+

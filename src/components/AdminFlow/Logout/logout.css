@@ -1,0 +1,105 @@
+.admin-logout-container {
+  min-height: 100vh;
+  background-image: url('../../../assets/images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.admin-main-content {
+  flex: 1;
+  padding: 3rem 10%;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.logout-modal {
+  background: white;
+  border-radius: 3px;
+  border: 1px solid #D1D5DB;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 400px;
+  max-width: 90%;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 1rem 0;
+}
+
+.modal-message {
+  font-size: 1rem;
+  color: #6B7280;
+  margin: 0 0 2rem 0;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.cancel-btn {
+  background: white;
+  color: #6B7280;
+  border: 1px solid #D1D5DB;
+  border-radius: 3px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancel-btn:hover {
+  background: #F9FAFB;
+}
+
+.logout-btn {
+  background: #EF4444;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.logout-btn:hover {
+  background: #DC2626;
+}
+
+@media (max-width: 768px) {
+  .logout-modal {
+    min-width: auto;
+    width: 90%;
+    padding: 1.5rem;
+  }
+}
+

@@ -1,0 +1,236 @@
+.admin-disputes-container {
+  min-height: 100vh;
+  background-image: url('../../../assets/images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.admin-main-content {
+  flex: 1;
+  padding: 3rem 10%;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+}
+
+.page-subtitle {
+  font-size: 1.125rem;
+  color: #6B7280;
+  margin: 0;
+}
+
+.summary-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.summary-card {
+  background: white;
+  border-radius: 3px;
+  border: 1px solid #D1D5DB;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.summary-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.summary-content {
+  flex: 1;
+}
+
+.summary-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6B7280;
+  margin: 0 0 0.5rem 0;
+}
+
+.summary-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.disputes-content-card {
+  background: white;
+  border-radius: 3px;
+  border: 1px solid #D1D5DB;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.search-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #D1D5DB;
+  border-radius: 3px;
+  font-size: 0.875rem;
+  color: #111827;
+}
+
+.search-input::placeholder {
+  color: #9CA3AF;
+}
+
+.search-btn {
+  background: #0D90B2;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.search-btn:hover {
+  background: #0A7A99;
+}
+
+.filter-select {
+  background: white;
+  border: 1px solid #D1D5DB;
+  border-radius: 3px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: #374151;
+  cursor: pointer;
+  min-width: 120px;
+}
+
+.disputes-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.disputes-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.disputes-table thead {
+  background: #F9FAFB;
+}
+
+.disputes-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.disputes-table td {
+  padding: 1rem;
+  font-size: 0.875rem;
+  color: #111827;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.disputes-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.priority-badge,
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+.action-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.action-icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.action-icon-btn:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 1200px) {
+  .summary-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-main-content {
+    padding: 1.5rem 5%;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .summary-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-filter-bar {
+    flex-direction: column;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+}
+

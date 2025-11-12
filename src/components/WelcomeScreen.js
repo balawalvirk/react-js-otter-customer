@@ -20,6 +20,8 @@ const WelcomeScreen = () => {
       navigate('/company-home');
     } else if (email === 'service@gmail.com' && password === '123456') {
       navigate('/service-job-assigned');
+    } else if (email === 'admin@gmail.com' && password === '123456') {
+      navigate('/admin-home');
     } else {
       navigate('/home');
     }
