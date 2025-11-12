@@ -120,7 +120,7 @@
 
 .disputes-table {
   width: 100%;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 
 .disputes-table table {

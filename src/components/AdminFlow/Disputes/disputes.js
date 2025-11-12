@@ -180,16 +180,23 @@ const Disputes = () => {
           </div>
 
           <div className="search-filter-bar">
-            <div className="search-container">
-              <input 
-                type="text" 
-                placeholder="Search companies by name or email..." 
-                className="search-input"
-              />
-              {/* <button className="search-send-btn"> */}
-                <img src={searchIcon} alt="Search" width="26" height="26" style={{marginRight:5}} />
-              {/* </button> */}
-            </div>
+             <div className="chat-input-containers">
+                          <input
+                            type="text"
+                            // value={chatMessage}
+                            // onChange={(e) => setChatMessage(e.target.value)}
+                            placeholder="Search companies by name or email..."
+                            className="chat-input"
+                          />
+                          {/* <button type="submit" className="send-button">
+                              <svg className="send-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M2.5 10L17.5 10M17.5 10L12.5 5M17.5 10L12.5 15" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                          </button> */}
+                           {/* <button type="submit" className="send-button"> */}
+                              <img src={searchIcon} alt="Send" height={30} width={30} style={{marginRight:7}}  />
+                            {/* </button> */}
+                        </div>
             <div className="filter-select-wrapper">
               <img src={filterIcon} alt="Filter" width="16" height="16" className="select-filter-icon" />
               <select className="filter-select">
