@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AdminHeader from '../adminHeader';
+import alertIcon from '../../../assets/icons/alert.png';
 import './ratings.css';
 
 const Ratings = () => {
@@ -79,7 +80,8 @@ const Ratings = () => {
       message: 'The proposal seems promising, but we should clarify the deadlines...',
       tags: ['1m 45s', '2 proposals'],
       status: 'Proposal Assessment',
-      statusColor: '#F59E0B'
+      statusColor: '#FFD400',
+      statusBg: '#FFFBE8'
     },
     {
       name: 'Creative Dynamics LLC',
@@ -87,7 +89,8 @@ const Ratings = () => {
       message: 'I agree with the proposal. Let\'s finalize everything in our upcoming meeting.',
       tags: ['45s', '2 proposals'],
       status: 'Cost Discussion',
-      statusColor: '#EC4899'
+      statusColor: '#D200FF',
+      statusBg: '#FBE6FF'
     },
     {
       name: 'Visionary Tech Group',
@@ -95,7 +98,8 @@ const Ratings = () => {
       message: 'The pricing seems a bit steep. Can we explore more budget-friendly options?',
       tags: ['3m 15s', '2 proposals'],
       status: 'Agreement Reached',
-      statusColor: '#10B981'
+      statusColor: '#1E7318',
+      statusBg: '#F0FFEF'
     }
   ];
 
@@ -131,8 +135,9 @@ const Ratings = () => {
                 <div className="performance-info">
                   <div className="performance-header">
                     <h3 className="performance-name">{company.name}</h3>
-                    <span className="performance-time">{company.time}</span>
+                    {/* <span className="performance-time">{company.time}</span> */}
                   </div>
+                    <p className="performance-message" style={{marginBottom:1}}>{company.time}</p>
                   <p className="performance-message">{company.message}</p>
                   <div className="performance-tags">
                     {company.tags.map((tag, tagIndex) => (
@@ -140,7 +145,14 @@ const Ratings = () => {
                     ))}
                   </div>
                 </div>
-                <span className="performance-status" style={{ backgroundColor: company.statusColor }}>
+                <span 
+                  className="performance-status" 
+                  style={{ 
+                    backgroundColor: company.statusBg,
+                    color: company.statusColor,
+                    borderColor: company.statusColor
+                  }}
+                >
                   {company.status}
                 </span>
               </div>
@@ -150,16 +162,12 @@ const Ratings = () => {
 
         <div className="flagged-section">
           <h2 className="section-title">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ marginRight: '0.5rem', display: 'inline' }}>
-              <path d="M10 1.66667L12.5 7.5L18.3333 8.75L14.1667 13.3333L15 19.1667L10 16.25L5 19.1667L5.83333 13.3333L1.66667 8.75L7.5 7.5L10 1.66667Z" stroke="#EF4444" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <img src={alertIcon} alt="Alert" width="20" height="20" style={{ marginRight: '0.5rem' }} />
             Flagged for removal
           </h2>
           <div className="flagged-card">
-            <div className="flagged-info">
-              <h3 className="flagged-company">Start up X</h3>
-              <p className="flagged-reason">Rating below 3.0 threshold</p>
-            </div>
+            <h3 className="flagged-company">Start up X</h3>
+            <p className="flagged-reason">Rating below 3.0 threshold</p>
             <div className="flagged-actions">
               <button className="remove-btn">Remove</button>
               <button className="review-btn">Review</button>

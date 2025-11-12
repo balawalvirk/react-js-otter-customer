@@ -52,7 +52,7 @@
   border: 1px solid #D1D5DB;
   padding: 1.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  text-align: left;
 }
 
 .metric-title {
@@ -154,28 +154,28 @@
   border-radius: 3px;
   font-size: 0.75rem;
   font-weight: 600;
-  color: white;
   white-space: nowrap;
+  border: 1px solid;
 }
 
 .flagged-section {
-  background: #FEE2E2;
+  background: white;
   border-radius: 3px;
-  border: 1px solid #FCA5A5;
+  border: 1px solid #D1D5DB;
   padding: 1.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   width: 100%;
 }
 
 .flagged-card {
+  background: #FEE2E2;
+  border-radius: 3px;
+  border: 1px solid #FCA5A5;
+  padding: 1.5rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 1rem;
-}
-
-.flagged-info {
-  flex: 1;
 }
 
 .flagged-company {
@@ -194,6 +194,7 @@
 .flagged-actions {
   display: flex;
   gap: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .remove-btn {
@@ -247,15 +248,14 @@
     grid-template-columns: 1fr;
   }
 
-  .performance-card,
-  .flagged-card {
+  .performance-card {
     flex-direction: column;
     align-items: flex-start;
   }
 
   .flagged-actions {
     width: 100%;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
 }
 

@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AdminHeader from '../adminHeader';
+import searchIcon from '../../../assets/icons/search.png';
+import editIcon from '../../../assets/icons/edit.png';
+import eyeIcon from '../../../assets/icons/eye.png';
+import downloadIcon from '../../../assets/icons/download.png';
+import threeDotsIcon from '../../../assets/icons/3dots.png';
+import filterIcon from '../../../assets/icons/filter.png';
+import disputesIcon from '../../../assets/icons/disputes.png';
 import './disputes.css';
 
 const Disputes = () => {
@@ -103,7 +110,7 @@ const Disputes = () => {
       priorityColor: '#10B981',
       lastUpdate: '2 hour ago',
       status: 'Open',
-      statusColor: '#10B981'
+      statusColor: '#8CCA19'
     },
     {
       id: 'DSP - 002',
@@ -113,7 +120,7 @@ const Disputes = () => {
       priorityColor: '#F59E0B',
       lastUpdate: '1 day ago',
       status: 'Pending',
-      statusColor: '#F59E0B'
+      statusColor: '#F9CF47'
     },
     {
       id: 'DSP - 003',
@@ -133,7 +140,7 @@ const Disputes = () => {
       priorityColor: '#10B981',
       lastUpdate: '30 minutes ago',
       status: 'Open',
-      statusColor: '#10B981'
+      statusColor: '#8CCA19'
     },
     {
       id: 'DSP - 005',
@@ -143,7 +150,7 @@ const Disputes = () => {
       priorityColor: '#10B981',
       lastUpdate: '4 hours ago',
       status: 'Open',
-      statusColor: '#10B981'
+      statusColor: '#8CCA19'
     }
   ];
 
@@ -157,36 +164,38 @@ const Disputes = () => {
           <p className="page-subtitle">Manage customer disputes and resolution cases</p>
         </div>
 
-        <div className="summary-cards-grid">
-          {summaryCards.map(card => (
-            <div key={card.id} className="summary-card">
-              <div className="summary-icon" style={{ color: card.color }}>
-                {card.icon}
-              </div>
-              <div className="summary-content">
-                <h3 className="summary-title">{card.title}</h3>
-                <p className="summary-value" style={{ color: card.color }}>{card.value}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
         <div className="disputes-content-card">
+          <div className="summary-cards-grid">
+            {summaryCards.map(card => (
+              <div key={card.id} className="summary-card">
+                <div className="summary-icon" style={{ backgroundColor: card.color + '20', color: card.color, borderColor: card.color }}>
+                  {card.icon}
+                </div>
+                <div className="summary-content-wrapper">
+                  <h3 className="summary-title">{card.title}</h3>
+                  <p className="summary-value" style={{ color: card.color }}>{card.value}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
           <div className="search-filter-bar">
-            <input 
-              type="text" 
-              placeholder="Search companies by name or email..." 
-              className="search-input"
-            />
-            <button className="search-btn">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M17.5 17.5L13.875 13.875" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-            <select className="filter-select">
-              <option>All Statuses</option>
-            </select>
+            <div className="search-container">
+              <input 
+                type="text" 
+                placeholder="Search companies by name or email..." 
+                className="search-input"
+              />
+              {/* <button className="search-send-btn"> */}
+                <img src={searchIcon} alt="Search" width="26" height="26" style={{marginRight:5}} />
+              {/* </button> */}
+            </div>
+            <div className="filter-select-wrapper">
+              <img src={filterIcon} alt="Filter" width="16" height="16" className="select-filter-icon" />
+              <select className="filter-select">
+                <option>All Statuses</option>
+              </select>
+            </div>
             <select className="filter-select">
               <option>All Priority</option>
             </select>
@@ -218,31 +227,29 @@ const Disputes = () => {
                     </td>
                     <td>{dispute.lastUpdate}</td>
                     <td>
-                      <span className="status-badge" style={{ backgroundColor: dispute.statusColor }}>
+                      <span 
+                        className="status-badge" 
+                        style={{ 
+                          backgroundColor: dispute.statusColor,
+                          color: dispute.status === 'Pending' ? '#111827' : 'white'
+                        }}
+                      >
                         {dispute.status}
                       </span>
                     </td>
                     <td>
                       <div className="action-icons">
                         <button className="action-icon-btn">
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M11.3333 2.00001C11.5084 1.82491 11.7163 1.68605 11.9447 1.59128C12.1731 1.49651 12.4173 1.44775 12.6667 1.44775C12.916 1.44775 13.1602 1.49651 13.3886 1.59128C13.617 1.68605 13.8249 1.82491 14 2.00001C14.1751 2.17511 14.314 2.38301 14.4087 2.61141C14.5035 2.83981 14.5523 3.08401 14.5523 3.33334C14.5523 3.58268 14.5035 3.82688 14.4087 4.05528C14.314 4.28368 14.1751 4.49158 14 4.66668L5.00001 13.6667L1.33334 14.6667L2.33334 11L11.3333 2.00001Z" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
+                          <img src={editIcon} alt="Edit" width="16" height="16" />
                         </button>
                         <button className="action-icon-btn">
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M8 3C5.23858 3 3 5.23858 3 8C3 10.7614 5.23858 13 8 13C10.7614 13 13 10.7614 13 8C13 5.23858 10.7614 3 8 3Z" stroke="#6B7280" strokeWidth="1.5"/>
-                            <path d="M8 10.6667C9.47276 10.6667 10.6667 9.47276 10.6667 8C10.6667 6.52724 9.47276 5.33333 8 5.33333C6.52724 5.33333 5.33333 6.52724 5.33333 8C5.33333 9.47276 6.52724 10.6667 8 10.6667Z" stroke="#6B7280" strokeWidth="1.5"/>
-                            <path d="M2.66667 2.66667L3.33333 3.33333" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round"/>
-                            <path d="M12.6667 12.6667L13.3333 13.3333" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round"/>
-                          </svg>
+                          <img src={eyeIcon} alt="View" width="16" height="16" />
                         </button>
                         <button className="action-icon-btn">
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M8 5.33333C8.36819 5.33333 8.66667 5.63181 8.66667 6C8.66667 6.36819 8.36819 6.66667 8 6.66667C7.63181 6.66667 7.33333 6.36819 7.33333 6C7.33333 5.63181 7.63181 5.33333 8 5.33333Z" fill="#6B7280"/>
-                            <path d="M8 8.66667C8.36819 8.66667 8.66667 8.96514 8.66667 9.33333C8.66667 9.70152 8.36819 10 8 10C7.63181 10 7.33333 9.70152 7.33333 9.33333C7.33333 8.96514 7.63181 8.66667 8 8.66667Z" fill="#6B7280"/>
-                            <path d="M8 12C8.36819 12 8.66667 12.2985 8.66667 12.6667C8.66667 13.0349 8.36819 13.3333 8 13.3333C7.63181 13.3333 7.33333 13.0349 7.33333 12.6667C7.33333 12.2985 7.63181 12 8 12Z" fill="#6B7280"/>
-                          </svg>
+                          <img src={downloadIcon} alt="Download" width="16" height="16" />
+                        </button>
+                        <button className="action-icon-btn">
+                          <img src={threeDotsIcon} alt="More" width="16" height="16" />
                         </button>
                       </div>
                     </td>

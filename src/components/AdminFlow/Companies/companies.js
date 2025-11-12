@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AdminHeader from '../adminHeader';
+import chatIcon from '../../../assets/icons/home icons/chat.png';
+import editIcon from '../../../assets/icons/edit.png';
+import eyeIcon from '../../../assets/icons/eye.png';
+import downloadIcon from '../../../assets/icons/download.png';
+import filterIcon from '../../../assets/icons/filter.png';
+import locationIcon from '../../../assets/icons/location.png';
 import './companies.css';
 
 const Companies = () => {
@@ -53,7 +59,7 @@ const Companies = () => {
       jobs: '156',
       revenue: '$4,587',
       status: 'Open',
-      statusColor: '#10B981'
+      statusColor: '#8CCA19'
     },
     {
       name: 'Elite Carpentry',
@@ -62,7 +68,7 @@ const Companies = () => {
       jobs: '89',
       revenue: '$27.09',
       status: 'Pending',
-      statusColor: '#F59E0B'
+      statusColor: '#F9CF47'
     },
     {
       name: 'Budget Repairs Co',
@@ -80,16 +86,16 @@ const Companies = () => {
       jobs: '203',
       revenue: '$45,907',
       status: 'Open',
-      statusColor: '#10B981'
+      statusColor: '#8CCA19'
     },
     {
       name: 'Fast Service LLC',
       email: 'contact@fastservice.com',
       rating: '$450',
       jobs: '25',
-      revenue: '$45.00',
+      revenue: '$45,00',
       status: 'Open',
-      statusColor: '#10B981'
+      statusColor: '#8CCA19'
     }
   ];
 
@@ -111,17 +117,10 @@ const Companies = () => {
                 placeholder="Search companies by name or email..." 
                 className="search-input"
               />
-              <button className="search-btn">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M17.5 17.5L13.875 13.875" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
+              <img src={chatIcon} alt="Send" height={25} width={25} style={{marginRight:7}} />
             </div>
             <button className="filter-btn">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M2 4H14M4 8H12M6 12H10" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round"/>
-              </svg>
+              <img src={filterIcon} alt="Filter" width="16" height="16" />
               All Statuses
             </button>
           </div>
@@ -129,19 +128,27 @@ const Companies = () => {
           <div className="filter-options">
             <button className="filter-option-btn">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M8 1.33333V14.6667M1.33333 8H14.6667" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round"/>
+                <path d="M8 1.33333C5.79086 1.33333 4 3.12419 4 5.33333C4 9.33333 8 14.6667 8 14.6667C8 14.6667 12 9.33333 12 5.33333C12 3.12419 10.2091 1.33333 8 1.33333ZM8 7.33333C7.26362 7.33333 6.66667 6.73638 6.66667 6C6.66667 5.26362 7.26362 4.66667 8 4.66667C8.73638 4.66667 9.33333 5.26362 9.33333 6C9.33333 6.73638 8.73638 7.33333 8 7.33333Z" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               Filter by location
             </button>
-            <select className="filter-select">
-              <option>Services Type</option>
-            </select>
-            <select className="filter-select">
-              <option>All Status</option>
-            </select>
-            <select className="filter-select">
-              <option>No Sorting</option>
-            </select>
+            <div className="filter-select-wrapper">
+              <img src={filterIcon} alt="Filter" width="16" height="16" className="select-filter-icon" />
+              <select className="filter-select">
+                <option>Services Type</option>
+              </select>
+            </div>
+            <div className="filter-select-wrapper">
+              <select className="filter-select">
+                <option>All Status</option>
+              </select>
+            </div>
+            <div className="filter-select-wrapper">
+              <select className="filter-select">
+                <option>No Sorting</option>
+              </select>
+            </div>
+           
           </div>
 
           <div className="companies-table-container">
@@ -166,29 +173,26 @@ const Companies = () => {
                     <td>{company.jobs}</td>
                     <td>{company.revenue}</td>
                     <td>
-                      <span className="status-badge" style={{ backgroundColor: company.statusColor }}>
+                      <span 
+                        className="status-badge" 
+                        style={{ 
+                          backgroundColor: company.statusColor,
+                          color: company.status === 'Pending' ? '#111827' : 'white'
+                        }}
+                      >
                         {company.status}
                       </span>
                     </td>
                     <td>
                       <div className="action-icons">
                         <button className="action-icon-btn">
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M11.3333 2.00001C11.5084 1.82491 11.7163 1.68605 11.9447 1.59128C12.1731 1.49651 12.4173 1.44775 12.6667 1.44775C12.916 1.44775 13.1602 1.49651 13.3886 1.59128C13.617 1.68605 13.8249 1.82491 14 2.00001C14.1751 2.17511 14.314 2.38301 14.4087 2.61141C14.5035 2.83981 14.5523 3.08401 14.5523 3.33334C14.5523 3.58268 14.5035 3.82688 14.4087 4.05528C14.314 4.28368 14.1751 4.49158 14 4.66668L5.00001 13.6667L1.33334 14.6667L2.33334 11L11.3333 2.00001Z" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
+                          <img src={editIcon} alt="Edit" width="16" height="16" />
                         </button>
                         <button className="action-icon-btn">
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M8 3C5.23858 3 3 5.23858 3 8C3 10.7614 5.23858 13 8 13C10.7614 13 13 10.7614 13 8C13 5.23858 10.7614 3 8 3Z" stroke="#6B7280" strokeWidth="1.5"/>
-                            <path d="M8 10.6667C9.47276 10.6667 10.6667 9.47276 10.6667 8C10.6667 6.52724 9.47276 5.33333 8 5.33333C6.52724 5.33333 5.33333 6.52724 5.33333 8C5.33333 9.47276 6.52724 10.6667 8 10.6667Z" stroke="#6B7280" strokeWidth="1.5"/>
-                            <path d="M2.66667 2.66667L3.33333 3.33333" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round"/>
-                            <path d="M12.6667 12.6667L13.3333 13.3333" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round"/>
-                          </svg>
+                          <img src={eyeIcon} alt="View" width="16" height="16" />
                         </button>
                         <button className="action-icon-btn">
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M8 1.33333V14.6667M1.33333 8H14.6667" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round"/>
-                          </svg>
+                          <img src={downloadIcon} alt="Download" width="16" height="16" />
                         </button>
                       </div>
                     </td>
