@@ -302,11 +302,39 @@
   }
 
   .search-filter-bar {
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: nowrap;
   }
 
-  .search-container {
+  .chat-input-container {
+    width: 100% !important;
+    flex-shrink: 0;
+  }
+
+  .filter-btn {
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  .filter-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
     width: 100%;
+  }
+
+  .filter-option-btn,
+  .filter-select-wrapper {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .filter-select-wrapper .filter-select {
+    width: 100%;
+    min-width: 0;
   }
 }
 

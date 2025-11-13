@@ -354,9 +354,31 @@
   }
 
   .search-filter-bar {
+    display: flex;
     flex-direction: column;
+    gap: 1rem;
     width: 100%;
     overflow-x: hidden;
+  }
+
+  .chat-input-containers {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  /* Create a flex row for the two buttons by positioning them */
+  .search-filter-bar > .filter-select-wrapper {
+    width: calc(50% - 0.5rem);
+    margin-right: 0.5rem;
+    align-self: flex-start;
+  }
+
+  .search-filter-bar > .filter-select {
+    width: calc(50% - 0.5rem);
+    margin-left: 0.5rem;
+    align-self: flex-end;
+    /* Position it on the same row as the previous button */
+    margin-top: calc(-1 * (40px + 1rem));
   }
 
   .search-container {

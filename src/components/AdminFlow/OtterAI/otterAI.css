@@ -328,6 +328,54 @@
     font-size: 2rem;
   }
 
+  .ai-interaction-section {
+    padding: 1rem;
+    overflow-x: hidden;
+  }
+
+  .chat-messages {
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  .message {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .user-message {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-right: 0 !important;
+  }
+
+  .message-bubble {
+    max-width: 85% !important;
+    width: auto !important;
+    box-sizing: border-box;
+  }
+
+  .ai-bubble {
+    max-width: 85% !important;
+  }
+
+  .user-bubble {
+    max-width: 85% !important;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .action-btn {
+    width: 100%;
+  }
+
   .conversation-card {
     flex-direction: column;
   }
