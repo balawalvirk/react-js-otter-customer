@@ -120,137 +120,139 @@ const Analytics = () => {
           <p className="analytics-subtitle">Monitor your campaign performance and business metrics</p>
         </div>
 
-        <div className="kpi-grid">
-          {kpiCards.map(card => (
-            <div key={card.id} className="kpi-card">
-              <div className="kpi-icon-wrapper">
-                {card.icon}
-              </div>
-              <div className="kpi-content">
-                <h3 className="kpi-title">{card.title}</h3>
-                <h2 className="kpi-value">{card.value}</h2>
-                <p className="kpi-change" style={{ color: card.changeColor }}>
-                  {card.change}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="charts-section">
-          <div className="chart-card">
-            <h3 className="chart-title">Performance by Territory</h3>
-            <div className="bar-chart-container">
-              <div className="bar-chart">
-                <div className="chart-y-axis">
-                  <span>3000</span>
-                  <span>2250</span>
-                  <span>1500</span>
-                  <span>750</span>
-                  <span>0</span>
+        <div className="analytics-content-card">
+          <div className="kpi-grid">
+            {kpiCards.map(card => (
+              <div key={card.id} className="kpi-card">
+                <div className="kpi-icon-wrapper">
+                  {card.icon}
                 </div>
-                <div className="chart-bars">
-                  <div className="chart-bar-group">
-                    <div className="chart-bar" style={{ height: '33%' }}></div>
-                    <span className="chart-x-label">North Region</span>
-                  </div>
-                  <div className="chart-bar-group">
-                    <div className="chart-bar" style={{ height: '97%' }}></div>
-                    <span className="chart-x-label">South Region</span>
-                  </div>
-                  <div className="chart-bar-group">
-                    <div className="chart-bar" style={{ height: '77%' }}></div>
-                    <span className="chart-x-label">East Region</span>
-                  </div>
-                  <div className="chart-bar-group">
-                    <div className="chart-bar" style={{ height: '30%' }}></div>
-                    <span className="chart-x-label">West Region</span>
-                  </div>
+                <div className="kpi-content">
+                  <h3 className="kpi-title">{card.title}</h3>
+                  <h2 className="kpi-value">{card.value}</h2>
+                  <p className="kpi-change" style={{ color: card.changeColor }}>
+                    {card.change}
+                  </p>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="chart-card">
-            <h3 className="chart-title">Total revenue</h3>
-            <div className="line-chart-container">
-              <div className="line-chart">
-                <div className="chart-y-axis">
-                  <span>100K</span>
-                  <span>50K</span>
-                  <span>25K</span>
-                  <span>0K</span>
-                </div>
-                <div className="chart-lines">
-                  <div className="line-chart-svg-wrapper">
-                    <svg className="line-chart-svg" viewBox="0 0 400 200" preserveAspectRatio="none">
-                      {/* Revenue line (solid blue) - starts high, dips in March, rises to May */}
-                      <polyline
-                        points="0,40 100,30 200,150 300,130 400,20"
-                        fill="none"
-                        stroke="#2563EB"
-                        strokeWidth="2.5"
-                      />
-                      {/* Outflow line (dashed blue) */}
-                      <polyline
-                        points="0,100 100,80 200,170 300,150 400,60"
-                        fill="none"
-                        stroke="#2563EB"
-                        strokeWidth="2.5"
-                        strokeDasharray="6,4"
-                      />
-                    </svg>
-                  </div>
-                  <div className="chart-x-labels">
-                    <span>Jan</span>
-                    <span>Feb</span>
-                    <span>Mar</span>
-                    <span>Apr</span>
-                    <span>May</span>
-                  </div>
-                  <div className="chart-legend">
-                    <div className="legend-item">
-                      <div className="legend-line solid"></div>
-                      <span>Revenue</span>
-                    </div>
-                    <div className="legend-item">
-                      <div className="legend-line dashed"></div>
-                      <span>Outflow</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="alerts-section">
-          <div className="alerts-header">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ marginRight: '0.5rem' }}>
-              <path d="M10 1.66667L2.5 17.5H17.5L10 1.66667Z" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M10 7.5V11.6667" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <circle cx="10" cy="14.1667" r="0.833333" fill="#F59E0B"/>
-            </svg>
-            <h3 className="alerts-title">Active Alerts</h3>
-          </div>
-          <div className="alerts-list">
-            {alerts.map(alert => (
-              <div key={alert.id} className="alert-item">
-                <span 
-                  className="alert-severity" 
-                  style={{ 
-                    backgroundColor: alert.severityColor === '#EF4444' ? '#FEE2E2' : 
-                                    alert.severityColor === '#F59E0B' ? '#FEF3C7' : '#F3F4F6',
-                    color: alert.severityColor === '#9CA3AF' ? '#6B7280' : alert.severityColor,
-                    border: `1px solid ${alert.severityColor}`
-                  }}
-                >
-                  {alert.severity}
-                </span>
-                <span className="alert-message">{alert.message}</span>
-                <span className="alert-time">{alert.time}</span>
               </div>
             ))}
+          </div>
+
+          <div className="charts-section">
+            <div className="chart-card">
+              <h3 className="chart-title">Performance by Territory</h3>
+              <div className="bar-chart-container">
+                <div className="bar-chart">
+                  <div className="chart-y-axis">
+                    <span>3000</span>
+                    <span>2250</span>
+                    <span>1500</span>
+                    <span>750</span>
+                    <span>0</span>
+                  </div>
+                  <div className="chart-bars">
+                    <div className="chart-bar-group">
+                      <div className="chart-bar" style={{ height: '33%' }}></div>
+                      <span className="chart-x-label">North Region</span>
+                    </div>
+                    <div className="chart-bar-group">
+                      <div className="chart-bar" style={{ height: '97%' }}></div>
+                      <span className="chart-x-label">South Region</span>
+                    </div>
+                    <div className="chart-bar-group">
+                      <div className="chart-bar" style={{ height: '77%' }}></div>
+                      <span className="chart-x-label">East Region</span>
+                    </div>
+                    <div className="chart-bar-group">
+                      <div className="chart-bar" style={{ height: '30%' }}></div>
+                      <span className="chart-x-label">West Region</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="chart-card">
+              <h3 className="chart-title">Total revenue</h3>
+              <div className="line-chart-container">
+                <div className="line-chart">
+                  <div className="chart-y-axis">
+                    <span>100K</span>
+                    <span>50K</span>
+                    <span>25K</span>
+                    <span>0K</span>
+                  </div>
+                  <div className="chart-lines">
+                    <div className="line-chart-svg-wrapper">
+                      <svg className="line-chart-svg" viewBox="0 0 400 200" preserveAspectRatio="none">
+                        {/* Revenue line (solid blue) - starts high, dips in March, rises to May */}
+                        <polyline
+                          points="0,40 100,30 200,150 300,130 400,20"
+                          fill="none"
+                          stroke="#2563EB"
+                          strokeWidth="2.5"
+                        />
+                        {/* Outflow line (dashed blue) */}
+                        <polyline
+                          points="0,100 100,80 200,170 300,150 400,60"
+                          fill="none"
+                          stroke="#2563EB"
+                          strokeWidth="2.5"
+                          strokeDasharray="6,4"
+                        />
+                      </svg>
+                    </div>
+                    <div className="chart-x-labels">
+                      <span>Jan</span>
+                      <span>Feb</span>
+                      <span>Mar</span>
+                      <span>Apr</span>
+                      <span>May</span>
+                    </div>
+                    <div className="chart-legend">
+                      <div className="legend-item">
+                        <div className="legend-line solid"></div>
+                        <span>Revenue</span>
+                      </div>
+                      <div className="legend-item">
+                        <div className="legend-line dashed"></div>
+                        <span>Outflow</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="alerts-section">
+            <div className="alerts-header">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ marginRight: '0.5rem' }}>
+                <path d="M10 1.66667L2.5 17.5H17.5L10 1.66667Z" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M10 7.5V11.6667" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <circle cx="10" cy="14.1667" r="0.833333" fill="#F59E0B"/>
+              </svg>
+              <h3 className="alerts-title">Active Alerts</h3>
+            </div>
+            <div className="alerts-list">
+              {alerts.map(alert => (
+                <div key={alert.id} className="alert-item">
+                  <span 
+                    className="alert-severity" 
+                    style={{ 
+                      backgroundColor: alert.severityColor === '#EF4444' ? '#FEE2E2' : 
+                                      alert.severityColor === '#F59E0B' ? '#FEF3C7' : '#F3F4F6',
+                      color: alert.severityColor === '#9CA3AF' ? '#6B7280' : alert.severityColor,
+                      border: `1px solid ${alert.severityColor}`
+                    }}
+                  >
+                    {alert.severity}
+                  </span>
+                  <span className="alert-message">{alert.message}</span>
+                  <span className="alert-time">{alert.time}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -133,10 +133,45 @@
   color: #111827;
 }
 
+.labor-entry {
+  margin-bottom: 1rem;
+}
+
 .labor-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
   gap: 0.75rem;
+  align-items: end;
+}
+
+.labor-delete-btn-wrapper {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 0;
+  height: 100%;
+  min-height: 40px;
+}
+
+.labor-delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+  height: fit-content;
+  margin-bottom: 0;
+}
+
+.labor-delete-btn:hover {
+  opacity: 0.7;
+}
+
+.labor-delete-btn svg {
+  width: 20px;
+  height: 20px;
 }
 
 .labor-grid label,
@@ -226,6 +261,32 @@
 
 .create-estimate-btn:hover {
   background: #0A7A99;
+}
+
+.add-labor-entry-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  background: #0D90B2;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.add-labor-entry-btn:hover {
+  background: #0A7A99;
+}
+
+.add-labor-entry-btn svg {
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {

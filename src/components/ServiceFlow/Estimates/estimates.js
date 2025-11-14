@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ServiceHeader from '../Header/serviceHeader';
 import '../JobAssigned/jobAssigned.css';
@@ -6,6 +6,9 @@ import './estimates.css';
 
 const EstimatesScreen = () => {
   const navigate = useNavigate();
+  const [laborEntries, setLaborEntries] = useState([
+    { hours: 2, rate: 85, total: 170.00 }
+  ]);
 
   const activeTab = 'estimates';
 
@@ -83,20 +86,100 @@ const EstimatesScreen = () => {
         <div className="estimate-form">
           <div className="labor-section">
             <h2>Labor</h2>
-            <div className="labor-grid">
-              <div>
-                <label>Hours</label>
-                <input type="number" min="0" defaultValue="2" />
-              </div>
-              <div>
-                <label>Rate ($/hr)</label>
-                <input type="number" min="0" defaultValue="85" />
-              </div>
-              <div>
-                <label>Labor Total</label>
-                <input type="text" value="$170.00" readOnly />
-              </div>
-            </div>
+            {laborEntries.map((entry, index) => {
+              const handleHoursChange = (e) => {
+                const newHours = parseFloat(e.target.value) || 0;
+                const newTotal = newHours * entry.rate;
+                const updatedEntries = [...laborEntries];
+                updatedEntries[index] = { ...entry, hours: newHours, total: newTotal };
+                setLaborEntries(updatedEntries);
+              };
+
+              const handleRateChange = (e) => {
+                const newRate = parseFloat(e.target.value) || 0;
+                const newTotal = entry.hours * newRate;
+                const updatedEntries = [...laborEntries];
+                updatedEntries[index] = { ...entry, rate: newRate, total: newTotal };
+                setLaborEntries(updatedEntries);
+              };
+
+              return (
+                <div key={index} className="labor-entry">
+                  <div className="labor-grid">
+                    <div>
+                      <label>Labor Hours</label>
+                      <input 
+                        type="number" 
+                        min="0" 
+                        step="0.01"
+                        value={entry.hours}
+                        onChange={handleHoursChange}
+                      />
+                    </div>
+                    <div>
+                      <label>Rate($/hr)</label>
+                      <input 
+                        type="number" 
+                        min="0" 
+                        step="0.01"
+                        value={entry.rate}
+                        onChange={handleRateChange}
+                      />
+                    </div>
+                    <div>
+                      <label>Labor Total</label>
+                      <input 
+                        type="text" 
+                        value={`$${entry.total.toFixed(2)}`} 
+                        readOnly 
+                      />
+                    </div>
+                    {index > 0 ? (
+                      <div className="labor-delete-btn-wrapper">
+                        <button
+                          type="button"
+                          className="labor-delete-btn"
+                          onClick={() => {
+                            const updatedEntries = laborEntries.filter((_, i) => i !== index);
+                            setLaborEntries(updatedEntries);
+                          }}
+                        >
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path
+                              d="M18 6L6 18M6 6L18 18"
+                              stroke="#EF4444"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="labor-delete-btn-wrapper"></div>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+            <button 
+              type="button" 
+              className="add-labor-entry-btn"
+              onClick={() => {
+                setLaborEntries([...laborEntries, { hours: 0, rate: 0, total: 0.00 }]);
+              }}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 5V19M5 12H19"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span>Add Another Labor Entry</span>
+            </button>
           </div>
 
           <div className="tax-section">
