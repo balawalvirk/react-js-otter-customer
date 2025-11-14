@@ -34,6 +34,7 @@ import AdminPayments from './components/AdminFlow/Payments/payments';
 import OtterAI from './components/AdminFlow/OtterAI/otterAI';
 import Ratings from './components/AdminFlow/Ratings/ratings';
 import AdminLogout from './components/AdminFlow/Logout/logout';
+import Analytics from './components/AddsFlow/Analytics Screen/analytics';
 import './App.css';
 
 function App() {
@@ -75,6 +76,7 @@ function App() {
           <Route path="/admin-otter-ai" element={<OtterAI />} />
           <Route path="/admin-ratings" element={<Ratings />} />
           <Route path="/admin-logout" element={<AdminLogout />} />
+          <Route path="/adds-analytics" element={<Analytics />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>

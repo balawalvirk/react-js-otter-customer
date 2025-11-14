@@ -22,6 +22,8 @@ const WelcomeScreen = () => {
       navigate('/service-job-assigned');
     } else if (email === 'admin@gmail.com' && password === '123456') {
       navigate('/admin-home');
+    } else if (email === 'adds@gmail.com' && password === '123456') {
+      navigate('/adds-analytics');
     } else {
       navigate('/home');
     }
