@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AddsHeader from '../addsHeader';
+import icon30 from '../../../assets/icons/adds/Container (30).png';
+import icon31 from '../../../assets/icons/adds/Container (31).png';
+import icon32 from '../../../assets/icons/adds/Container (32).png';
+import icon33 from '../../../assets/icons/adds/Container (33).png';
 import './analytics.css';
 
 const Analytics = () => {
@@ -11,22 +15,22 @@ const Analytics = () => {
     {
       key: 'analytics',
       label: 'Analytics',
-      onPress: () => setActiveTab('analytics')
+      onPress: () => navigate('/adds-analytics')
     },
     {
       key: 'ad-campaigns',
       label: 'Ad Campaigns',
-      onPress: () => setActiveTab('ad-campaigns')
+      onPress: () => navigate('/adds-ad-campaigns')
     },
     {
       key: 'payments',
-      label: 'Payments',
-      onPress: () => setActiveTab('payments')
+      label: 'Payment',
+      onPress: () => navigate('/adds-payment')
     },
     {
       key: 'engagement-reports',
       label: 'Engagement Reports',
-      onPress: () => setActiveTab('engagement-reports')
+      onPress: () => navigate('/adds-engagement-reports')
     }
   ];
 
@@ -35,54 +39,37 @@ const Analytics = () => {
       id: 1,
       title: 'Total Impressions',
       value: '368K',
+      valueColor: '#F97316',
       change: '+15.3% vs last month',
-      changeColor: '#10B981',
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="#111827" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <circle cx="12" cy="12" r="3" stroke="#111827" strokeWidth="2"/>
-        </svg>
-      )
+      changeColor: '#6B7280',
+      icon: icon30
     },
     {
       id: 2,
       title: 'Total Clicks',
       value: '10.1K',
+      valueColor: '#EF4444',
       change: '+12.8% vs last month',
-      changeColor: '#10B981',
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M9 11L12 8L15 11" stroke="#111827" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M12 8V18" stroke="#111827" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M8 18H16" stroke="#111827" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <circle cx="12" cy="5" r="1.5" fill="#111827"/>
-        </svg>
-      )
+      changeColor: '#6B7280',
+      icon: icon31
     },
     {
       id: 3,
       title: 'Total Spend',
       value: '$18,450',
+      valueColor: '#10B981',
       change: '-3.2% vs last month',
-      changeColor: '#EF4444',
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M12 2V22M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6313 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6313 13.6815 18 14.5717 18 15.5C18 16.4283 17.6313 17.3185 16.9749 17.9749C16.3185 18.6313 15.4283 19 14.5 19H6" stroke="#111827" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      )
+      changeColor: '#6B7280',
+      icon: icon32
     },
     {
       id: 4,
       title: 'Avg CTR',
       value: '2.74%',
+      valueColor: '#0EA5E9',
       change: '+8.1% vs last month',
-      changeColor: '#10B981',
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M3 3V21H21" stroke="#111827" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M7 16L12 11L16 15L21 10" stroke="#111827" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      )
+      changeColor: '#6B7280',
+      icon: icon33
     }
   ];
 
@@ -124,12 +111,16 @@ const Analytics = () => {
           <div className="kpi-grid">
             {kpiCards.map(card => (
               <div key={card.id} className="kpi-card">
-                <div className="kpi-icon-wrapper">
-                  {card.icon}
+                <div className="kpi-header-row">
+                  <div className="kpi-icon-wrapper">
+                    <img src={card.icon} alt={card.title} />
+                  </div>
+                  <h3 className="kpi-title">{card.title}</h3>
                 </div>
                 <div className="kpi-content">
-                  <h3 className="kpi-title">{card.title}</h3>
-                  <h2 className="kpi-value">{card.value}</h2>
+                  <h2 className="kpi-value" style={{ color: card.valueColor }}>
+                    {card.value}
+                  </h2>
                   <p className="kpi-change" style={{ color: card.changeColor }}>
                     {card.change}
                   </p>
@@ -173,7 +164,19 @@ const Analytics = () => {
             </div>
 
             <div className="chart-card">
-              <h3 className="chart-title">Total revenue</h3>
+              <div className="chart-title-row">
+                <h3 className="chart-title">Total revenue</h3>
+                <div className="chart-legend">
+                  <div className="legend-item">
+                    <div className="legend-dot revenue"></div>
+                    <span>Revenue</span>
+                  </div>
+                  <div className="legend-item">
+                    <div className="legend-dot outflow"></div>
+                    <span>Outflow</span>
+                  </div>
+                </div>
+              </div>
               <div className="line-chart-container">
                 <div className="line-chart">
                   <div className="chart-y-axis">
@@ -185,18 +188,29 @@ const Analytics = () => {
                   <div className="chart-lines">
                     <div className="line-chart-svg-wrapper">
                       <svg className="line-chart-svg" viewBox="0 0 400 200" preserveAspectRatio="none">
-                        {/* Revenue line (solid blue) - starts high, dips in March, rises to May */}
+                        <defs>
+                          <linearGradient id="revenueGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stopColor="#B5F0FF" />
+                            <stop offset="100%" stopColor="#BBF49C" stopOpacity="0" />
+                          </linearGradient>
+                        </defs>
+                        {/* Area fill under revenue line */}
+                        <path
+                          d="M 0,40 L 100,30 L 200,150 L 300,130 L 400,20 L 400,200 L 0,200 Z"
+                          fill="url(#revenueGradient)"
+                        />
+                        {/* Revenue line (solid) */}
                         <polyline
                           points="0,40 100,30 200,150 300,130 400,20"
                           fill="none"
-                          stroke="#2563EB"
+                          stroke="#0D90B2"
                           strokeWidth="2.5"
                         />
-                        {/* Outflow line (dashed blue) */}
+                        {/* Outflow line (dashed) */}
                         <polyline
                           points="0,100 100,80 200,170 300,150 400,60"
                           fill="none"
-                          stroke="#2563EB"
+                          stroke="#0D90B2"
                           strokeWidth="2.5"
                           strokeDasharray="6,4"
                         />
@@ -208,16 +222,6 @@ const Analytics = () => {
                       <span>Mar</span>
                       <span>Apr</span>
                       <span>May</span>
-                    </div>
-                    <div className="chart-legend">
-                      <div className="legend-item">
-                        <div className="legend-line solid"></div>
-                        <span>Revenue</span>
-                      </div>
-                      <div className="legend-item">
-                        <div className="legend-line dashed"></div>
-                        <span>Outflow</span>
-                      </div>
                     </div>
                   </div>
                 </div>

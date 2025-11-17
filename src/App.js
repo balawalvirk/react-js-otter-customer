@@ -35,6 +35,9 @@ import OtterAI from './components/AdminFlow/OtterAI/otterAI';
 import Ratings from './components/AdminFlow/Ratings/ratings';
 import AdminLogout from './components/AdminFlow/Logout/logout';
 import Analytics from './components/AddsFlow/Analytics Screen/analytics';
+import AdCampaigns from './components/AddsFlow/Ad Campaigns/adCampaigns';
+import Payment from './components/AddsFlow/Payment/payment';
+import EngagementReports from './components/AddsFlow/Engagement Reports/engagementReports';
 import './App.css';
 
 function App() {
@@ -77,6 +80,9 @@ function App() {
           <Route path="/admin-ratings" element={<Ratings />} />
           <Route path="/admin-logout" element={<AdminLogout />} />
           <Route path="/adds-analytics" element={<Analytics />} />
+          <Route path="/adds-ad-campaigns" element={<AdCampaigns />} />
+          <Route path="/adds-payment" element={<Payment />} />
+          <Route path="/adds-engagement-reports" element={<EngagementReports />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
